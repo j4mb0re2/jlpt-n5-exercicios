@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 2 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 2 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando os pronomes demonstrativos, partículas e profissões.</p>
+<div class="card">
+<strong>1. Ele é estudante.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="かれはがくせいです。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Isto é um livro.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="これはほんです。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Este é o professor.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="こちらはせんせいです。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Tanaka é japonês.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="たなかさんはにほんじんです。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Essa é a bolsa do professor.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="それはせんせいのかばんです。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Aquele é um hospital.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="あれはびょういんです。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Você é brasileiro?</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="あなたはブラジルじんですか。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. Esta é minha bicicleta.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="これはわたしのじてんしゃです。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Ele é advogado.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="かれはべんごしです。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. Ela é dona de casa.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="かのじょはしゅふです。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha a partícula ou demonstrativo correto que completa a frase.</p><div class="card">
+<strong>1. Isto é um dicionário.</strong><br>______はじしょです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m1" value="これ" data-resposta="これ" data-grupo="grupo_m" data-id="m1"> これ</label>
+<label><input type="radio" name="grupo_m1" value="それ" data-resposta="これ" data-grupo="grupo_m" data-id="m1"> それ</label>
+<label><input type="radio" name="grupo_m1" value="あれ" data-resposta="これ" data-grupo="grupo_m" data-id="m1"> あれ</label>
+<label><input type="radio" name="grupo_m1" value="どれ" data-resposta="これ" data-grupo="grupo_m" data-id="m1"> どれ</label>
+<label><input type="radio" name="grupo_m1" value="ここ" data-resposta="これ" data-grupo="grupo_m" data-id="m1"> ここ</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Tanaka é professor.</strong><br>たなかさん______せんせいです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m2" value="は" data-resposta="は" data-grupo="grupo_m" data-id="m2"> は</label>
+<label><input type="radio" name="grupo_m2" value="の" data-resposta="は" data-grupo="grupo_m" data-id="m2"> の</label>
+<label><input type="radio" name="grupo_m2" value="か" data-resposta="は" data-grupo="grupo_m" data-id="m2"> か</label>
+<label><input type="radio" name="grupo_m2" value="を" data-resposta="は" data-grupo="grupo_m" data-id="m2"> を</label>
+<label><input type="radio" name="grupo_m2" value="が" data-resposta="は" data-grupo="grupo_m" data-id="m2"> が</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Este é o engenheiro.</strong><br>______はエンジニアです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m3" value="こちら" data-resposta="こちら" data-grupo="grupo_m" data-id="m3"> こちら</label>
+<label><input type="radio" name="grupo_m3" value="あれ" data-resposta="こちら" data-grupo="grupo_m" data-id="m3"> あれ</label>
+<label><input type="radio" name="grupo_m3" value="それ" data-resposta="こちら" data-grupo="grupo_m" data-id="m3"> それ</label>
+<label><input type="radio" name="grupo_m3" value="どれ" data-resposta="こちら" data-grupo="grupo_m" data-id="m3"> どれ</label>
+<label><input type="radio" name="grupo_m3" value="どこ" data-resposta="こちら" data-grupo="grupo_m" data-id="m3"> どこ</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Você é estudante?</strong><br>あなたはがくせい______。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m4" value="ですか" data-resposta="ですか" data-grupo="grupo_m" data-id="m4"> ですか</label>
+<label><input type="radio" name="grupo_m4" value="ですの" data-resposta="ですか" data-grupo="grupo_m" data-id="m4"> ですの</label>
+<label><input type="radio" name="grupo_m4" value="でした" data-resposta="ですか" data-grupo="grupo_m" data-id="m4"> でした</label>
+<label><input type="radio" name="grupo_m4" value="かです" data-resposta="ですか" data-grupo="grupo_m" data-id="m4"> かです</label>
+<label><input type="radio" name="grupo_m4" value="かの" data-resposta="ですか" data-grupo="grupo_m" data-id="m4"> かの</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Essa é a bicicleta do professor.</strong><br>それはせんせい______じてんしゃです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m5" value="の" data-resposta="の" data-grupo="grupo_m" data-id="m5"> の</label>
+<label><input type="radio" name="grupo_m5" value="は" data-resposta="の" data-grupo="grupo_m" data-id="m5"> は</label>
+<label><input type="radio" name="grupo_m5" value="を" data-resposta="の" data-grupo="grupo_m" data-id="m5"> を</label>
+<label><input type="radio" name="grupo_m5" value="か" data-resposta="の" data-grupo="grupo_m" data-id="m5"> か</label>
+<label><input type="radio" name="grupo_m5" value="で" data-resposta="の" data-grupo="grupo_m" data-id="m5"> で</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Aquilo é a casa do amigo.</strong><br>あれはともだち______いえです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m6" value="の" data-resposta="の" data-grupo="grupo_m" data-id="m6"> の</label>
+<label><input type="radio" name="grupo_m6" value="が" data-resposta="の" data-grupo="grupo_m" data-id="m6"> が</label>
+<label><input type="radio" name="grupo_m6" value="は" data-resposta="の" data-grupo="grupo_m" data-id="m6"> は</label>
+<label><input type="radio" name="grupo_m6" value="に" data-resposta="の" data-grupo="grupo_m" data-id="m6"> に</label>
+<label><input type="radio" name="grupo_m6" value="で" data-resposta="の" data-grupo="grupo_m" data-id="m6"> で</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Ele é policial?</strong><br>かれはけいさつかん______。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m7" value="ですか" data-resposta="ですか" data-grupo="grupo_m" data-id="m7"> ですか</label>
+<label><input type="radio" name="grupo_m7" value="です" data-resposta="ですか" data-grupo="grupo_m" data-id="m7"> です</label>
+<label><input type="radio" name="grupo_m7" value="でしょう" data-resposta="ですか" data-grupo="grupo_m" data-id="m7"> でしょう</label>
+<label><input type="radio" name="grupo_m7" value="でしょ" data-resposta="ですか" data-grupo="grupo_m" data-id="m7"> でしょ</label>
+<label><input type="radio" name="grupo_m7" value="のです" data-resposta="ですか" data-grupo="grupo_m" data-id="m7"> のです</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Este é o livro do Tanaka.</strong><br>これはたなかさん______ほんです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m8" value="の" data-resposta="の" data-grupo="grupo_m" data-id="m8"> の</label>
+<label><input type="radio" name="grupo_m8" value="は" data-resposta="の" data-grupo="grupo_m" data-id="m8"> は</label>
+<label><input type="radio" name="grupo_m8" value="を" data-resposta="の" data-grupo="grupo_m" data-id="m8"> を</label>
+<label><input type="radio" name="grupo_m8" value="か" data-resposta="の" data-grupo="grupo_m" data-id="m8"> か</label>
+<label><input type="radio" name="grupo_m8" value="で" data-resposta="の" data-grupo="grupo_m" data-id="m8"> で</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Ela é japonesa?</strong><br>かのじょはにほんじん______。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m9" value="ですか" data-resposta="ですか" data-grupo="grupo_m" data-id="m9"> ですか</label>
+<label><input type="radio" name="grupo_m9" value="です" data-resposta="ですか" data-grupo="grupo_m" data-id="m9"> です</label>
+<label><input type="radio" name="grupo_m9" value="の" data-resposta="ですか" data-grupo="grupo_m" data-id="m9"> の</label>
+<label><input type="radio" name="grupo_m9" value="か" data-resposta="ですか" data-grupo="grupo_m" data-id="m9"> か</label>
+<label><input type="radio" name="grupo_m9" value="で" data-resposta="ですか" data-grupo="grupo_m" data-id="m9"> で</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Isso é a casa da professora.</strong><br>それはせんせい______いえです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m10" value="の" data-resposta="の" data-grupo="grupo_m" data-id="m10"> の</label>
+<label><input type="radio" name="grupo_m10" value="は" data-resposta="の" data-grupo="grupo_m" data-id="m10"> は</label>
+<label><input type="radio" name="grupo_m10" value="を" data-resposta="の" data-grupo="grupo_m" data-id="m10"> を</label>
+<label><input type="radio" name="grupo_m10" value="に" data-resposta="の" data-grupo="grupo_m" data-id="m10"> に</label>
+<label><input type="radio" name="grupo_m10" value="が" data-resposta="の" data-grupo="grupo_m" data-id="m10"> が</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_m', 'm')">Corrigir Múltipla Escolha</button><h2>🧩 Complete a frase com a palavra correta</h2><p>Escolha entre これ・それ・あれ・こちら ou as partículas は・の・か.</p><div class="card">
+<strong>1. (______)はせんせいです。→ Este é o professor.</strong><br>
+<input type="text" id="c1" data-group="c" data-resposta="こちら">
+<div id="r_c1" class="answer"></div>
+</div>
+<div class="card">
+<strong>2. たなかさん(______)にほんじんです。→ Tanaka é japonês.</strong><br>
+<input type="text" id="c2" data-group="c" data-resposta="は">
+<div id="r_c2" class="answer"></div>
+</div>
+<div class="card">
+<strong>3. これはわたし(______)ほんです。→ Este é meu livro.</strong><br>
+<input type="text" id="c3" data-group="c" data-resposta="の">
+<div id="r_c3" class="answer"></div>
+</div>
+<div class="card">
+<strong>4. あなた(______)がくせいですか。→ Você é estudante?</strong><br>
+<input type="text" id="c4" data-group="c" data-resposta="は">
+<div id="r_c4" class="answer"></div>
+</div>
+<div class="card">
+<strong>5. (______)はともだちのかさです。→ Isso é o guarda-chuva do amigo.</strong><br>
+<input type="text" id="c5" data-group="c" data-resposta="それ">
+<div id="r_c5" class="answer"></div>
+</div>
+<div class="card">
+<strong>6. (______)はがくせいのかばんです。→ Aquilo é a bolsa do estudante.</strong><br>
+<input type="text" id="c6" data-group="c" data-resposta="あれ">
+<div id="r_c6" class="answer"></div>
+</div>
+<div class="card">
+<strong>7. これはせんせい(______)じてんしゃです。→ Esta é a bicicleta do professor.</strong><br>
+<input type="text" id="c7" data-group="c" data-resposta="の">
+<div id="r_c7" class="answer"></div>
+</div>
+<div class="card">
+<strong>8. (______)はブラジルじんですか。→ Você é brasileiro?</strong><br>
+<input type="text" id="c8" data-group="c" data-resposta="あなた">
+<div id="r_c8" class="answer"></div>
+</div>
+<div class="card">
+<strong>9. かのじょ(______)しゅふです。→ Ela é dona de casa.</strong><br>
+<input type="text" id="c9" data-group="c" data-resposta="は">
+<div id="r_c9" class="answer"></div>
+</div>
+<div class="card">
+<strong>10. (______)はちゅうごくじんです。→ Isso é chinês.</strong><br>
+<input type="text" id="c10" data-group="c" data-resposta="それ">
+<div id="r_c10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('c')">Corrigir Frases</button></body></html>

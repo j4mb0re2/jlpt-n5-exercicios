@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 6 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 6 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando o vocabulário aprendido. Clique no botão para ver se está certo.</p>
+<div class="card">
+<strong>1. Este livro é interessante.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="このほんはおもしろいです。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Aquele carro é novo.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="あのくるまはあたらしいです。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Esta cidade é silenciosa.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="このまちはしずかです。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Tanaka-san é gentil.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="たなかさんはしんせつです。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Esta maçã não é gostosa.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="このりんごはおいしくないです。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Esse quarto não é limpo.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="そのへやはきれいじゃないです。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Café é mais amargo que chá.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="コーヒーのほうが おちゃより にがいです。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. O Japão é mais frio que o Brasil.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="にほんのほうが ブラジルより さむいです。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. O celular é mais prático que o computador.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="スマホのほうが パソコンより べんりです。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. A televisão é mais entediante que os livros.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="テレビのほうが ほんより つまらないです。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha o adjetivo correto que completa a frase.</p><div class="card">
+<strong>1. Este carro é caro.</strong><br>このくるまは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla1" value="たかい" data-resposta="たかい" data-grupo="grupo_multipla" data-id="m1"> たかい</label>
+<label><input type="radio" name="grupo_multipla1" value="やすい" data-resposta="たかい" data-grupo="grupo_multipla" data-id="m1"> やすい</label>
+<label><input type="radio" name="grupo_multipla1" value="ふるい" data-resposta="たかい" data-grupo="grupo_multipla" data-id="m1"> ふるい</label>
+<label><input type="radio" name="grupo_multipla1" value="きれい" data-resposta="たかい" data-grupo="grupo_multipla" data-id="m1"> きれい</label>
+<label><input type="radio" name="grupo_multipla1" value="おいしい" data-resposta="たかい" data-grupo="grupo_multipla" data-id="m1"> おいしい</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Essa cidade não é silenciosa.</strong><br>このまちは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla2" value="しずかじゃない" data-resposta="しずかじゃない" data-grupo="grupo_multipla" data-id="m2"> しずかじゃない</label>
+<label><input type="radio" name="grupo_multipla2" value="にぎやか" data-resposta="しずかじゃない" data-grupo="grupo_multipla" data-id="m2"> にぎやか</label>
+<label><input type="radio" name="grupo_multipla2" value="しずか" data-resposta="しずかじゃない" data-grupo="grupo_multipla" data-id="m2"> しずか</label>
+<label><input type="radio" name="grupo_multipla2" value="ゆうめい" data-resposta="しずかじゃない" data-grupo="grupo_multipla" data-id="m2"> ゆうめい</label>
+<label><input type="radio" name="grupo_multipla2" value="べんり" data-resposta="しずかじゃない" data-grupo="grupo_multipla" data-id="m2"> べんり</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Este quarto é bonito.</strong><br>このへやは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla3" value="きれい" data-resposta="きれい" data-grupo="grupo_multipla" data-id="m3"> きれい</label>
+<label><input type="radio" name="grupo_multipla3" value="ひま" data-resposta="きれい" data-grupo="grupo_multipla" data-id="m3"> ひま</label>
+<label><input type="radio" name="grupo_multipla3" value="しんせつ" data-resposta="きれい" data-grupo="grupo_multipla" data-id="m3"> しんせつ</label>
+<label><input type="radio" name="grupo_multipla3" value="ふべん" data-resposta="きれい" data-grupo="grupo_multipla" data-id="m3"> ふべん</label>
+<label><input type="radio" name="grupo_multipla3" value="ふるい" data-resposta="きれい" data-grupo="grupo_multipla" data-id="m3"> ふるい</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Tanaka-san não é famoso.</strong><br>たなかさんは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla4" value="ゆうめいじゃない" data-resposta="ゆうめいじゃない" data-grupo="grupo_multipla" data-id="m4"> ゆうめいじゃない</label>
+<label><input type="radio" name="grupo_multipla4" value="にぎやか" data-resposta="ゆうめいじゃない" data-grupo="grupo_multipla" data-id="m4"> にぎやか</label>
+<label><input type="radio" name="grupo_multipla4" value="たかい" data-resposta="ゆうめいじゃない" data-grupo="grupo_multipla" data-id="m4"> たかい</label>
+<label><input type="radio" name="grupo_multipla4" value="すてき" data-resposta="ゆうめいじゃない" data-grupo="grupo_multipla" data-id="m4"> すてき</label>
+<label><input type="radio" name="grupo_multipla4" value="べんり" data-resposta="ゆうめいじゃない" data-grupo="grupo_multipla" data-id="m4"> べんり</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Esse livro é chato.</strong><br>そのほんは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla5" value="つまらない" data-resposta="つまらない" data-grupo="grupo_multipla" data-id="m5"> つまらない</label>
+<label><input type="radio" name="grupo_multipla5" value="おいしい" data-resposta="つまらない" data-grupo="grupo_multipla" data-id="m5"> おいしい</label>
+<label><input type="radio" name="grupo_multipla5" value="ひま" data-resposta="つまらない" data-grupo="grupo_multipla" data-id="m5"> ひま</label>
+<label><input type="radio" name="grupo_multipla5" value="おおきい" data-resposta="つまらない" data-grupo="grupo_multipla" data-id="m5"> おおきい</label>
+<label><input type="radio" name="grupo_multipla5" value="きれい" data-resposta="つまらない" data-grupo="grupo_multipla" data-id="m5"> きれい</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Essa comida não é gostosa.</strong><br>このたべものは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla6" value="おいしくない" data-resposta="おいしくない" data-grupo="grupo_multipla" data-id="m6"> おいしくない</label>
+<label><input type="radio" name="grupo_multipla6" value="たかくない" data-resposta="おいしくない" data-grupo="grupo_multipla" data-id="m6"> たかくない</label>
+<label><input type="radio" name="grupo_multipla6" value="やすくない" data-resposta="おいしくない" data-grupo="grupo_multipla" data-id="m6"> やすくない</label>
+<label><input type="radio" name="grupo_multipla6" value="げんきじゃない" data-resposta="おいしくない" data-grupo="grupo_multipla" data-id="m6"> げんきじゃない</label>
+<label><input type="radio" name="grupo_multipla6" value="ふべん" data-resposta="おいしくない" data-grupo="grupo_multipla" data-id="m6"> ふべん</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. A biblioteca é calma.</strong><br>としょかんは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla7" value="しずか" data-resposta="しずか" data-grupo="grupo_multipla" data-id="m7"> しずか</label>
+<label><input type="radio" name="grupo_multipla7" value="べんり" data-resposta="しずか" data-grupo="grupo_multipla" data-id="m7"> べんり</label>
+<label><input type="radio" name="grupo_multipla7" value="やすい" data-resposta="しずか" data-grupo="grupo_multipla" data-id="m7"> やすい</label>
+<label><input type="radio" name="grupo_multipla7" value="ひま" data-resposta="しずか" data-grupo="grupo_multipla" data-id="m7"> ひま</label>
+<label><input type="radio" name="grupo_multipla7" value="おもしろい" data-resposta="しずか" data-grupo="grupo_multipla" data-id="m7"> おもしろい</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Este computador é prático.</strong><br>このパソコンは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla8" value="べんり" data-resposta="べんり" data-grupo="grupo_multipla" data-id="m8"> べんり</label>
+<label><input type="radio" name="grupo_multipla8" value="ふべん" data-resposta="べんり" data-grupo="grupo_multipla" data-id="m8"> ふべん</label>
+<label><input type="radio" name="grupo_multipla8" value="やすい" data-resposta="べんり" data-grupo="grupo_multipla" data-id="m8"> やすい</label>
+<label><input type="radio" name="grupo_multipla8" value="きれい" data-resposta="べんり" data-grupo="grupo_multipla" data-id="m8"> きれい</label>
+<label><input type="radio" name="grupo_multipla8" value="まずい" data-resposta="べんり" data-grupo="grupo_multipla" data-id="m8"> まずい</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Este restaurante não é bom.</strong><br>このレストランは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla9" value="まずい" data-resposta="まずい" data-grupo="grupo_multipla" data-id="m9"> まずい</label>
+<label><input type="radio" name="grupo_multipla9" value="たかい" data-resposta="まずい" data-grupo="grupo_multipla" data-id="m9"> たかい</label>
+<label><input type="radio" name="grupo_multipla9" value="おもしろい" data-resposta="まずい" data-grupo="grupo_multipla" data-id="m9"> おもしろい</label>
+<label><input type="radio" name="grupo_multipla9" value="ひま" data-resposta="まずい" data-grupo="grupo_multipla" data-id="m9"> ひま</label>
+<label><input type="radio" name="grupo_multipla9" value="ふるい" data-resposta="まずい" data-grupo="grupo_multipla" data-id="m9"> ふるい</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Essa pessoa é simpática.</strong><br>そのひとは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla10" value="しんせつ" data-resposta="しんせつ" data-grupo="grupo_multipla" data-id="m10"> しんせつ</label>
+<label><input type="radio" name="grupo_multipla10" value="やすい" data-resposta="しんせつ" data-grupo="grupo_multipla" data-id="m10"> やすい</label>
+<label><input type="radio" name="grupo_multipla10" value="たかくない" data-resposta="しんせつ" data-grupo="grupo_multipla" data-id="m10"> たかくない</label>
+<label><input type="radio" name="grupo_multipla10" value="おいしい" data-resposta="しんせつ" data-grupo="grupo_multipla" data-id="m10"> おいしい</label>
+<label><input type="radio" name="grupo_multipla10" value="ふべん" data-resposta="しんせつ" data-grupo="grupo_multipla" data-id="m10"> ふべん</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_multipla', 'm')">Corrigir Múltipla Escolha</button><h2>🔗 Complete com a partícula correta</h2><p>Escolha entre は ou より conforme a função da frase.</p><div class="card">
+<strong>1. Este livro é interessante.</strong><br>このほん______おもしろいです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part1" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt1"> は</label>
+<label><input type="radio" name="grupo_part1" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt1"> より</label>
+<div id="r_pt1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Essa cidade é calma.</strong><br>このまち______しずかです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part2" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt2"> は</label>
+<label><input type="radio" name="grupo_part2" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt2"> より</label>
+<div id="r_pt2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Tanaka-san é famoso.</strong><br>たなかさん______ゆうめいです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part3" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt3"> は</label>
+<label><input type="radio" name="grupo_part3" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt3"> より</label>
+<div id="r_pt3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Esse quarto não é bonito.</strong><br>このへや______きれいじゃないです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part4" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt4"> は</label>
+<label><input type="radio" name="grupo_part4" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt4"> より</label>
+<div id="r_pt4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Brasil é mais quente que Japão.</strong><br>ブラジルのほうが にほん______あついです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part5" value="は" data-resposta="より" data-grupo="grupo_part" data-id="pt5"> は</label>
+<label><input type="radio" name="grupo_part5" value="より" data-resposta="より" data-grupo="grupo_part" data-id="pt5"> より</label>
+<div id="r_pt5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Celular é mais prático que computador.</strong><br>スマホのほうが パソコン______べんりです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part6" value="は" data-resposta="より" data-grupo="grupo_part" data-id="pt6"> は</label>
+<label><input type="radio" name="grupo_part6" value="より" data-resposta="より" data-grupo="grupo_part" data-id="pt6"> より</label>
+<div id="r_pt6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. TV é mais chata que livros.</strong><br>テレビのほうが ほん______つまらないです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part7" value="は" data-resposta="より" data-grupo="grupo_part" data-id="pt7"> は</label>
+<label><input type="radio" name="grupo_part7" value="より" data-resposta="より" data-grupo="grupo_part" data-id="pt7"> より</label>
+<div id="r_pt7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Este carro não é novo.</strong><br>このくるま______あたらしくないです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part8" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt8"> は</label>
+<label><input type="radio" name="grupo_part8" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt8"> より</label>
+<div id="r_pt8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Essa comida é gostosa.</strong><br>このたべもの______おいしいです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part9" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt9"> は</label>
+<label><input type="radio" name="grupo_part9" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt9"> より</label>
+<div id="r_pt9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Essa pessoa não é gentil.</strong><br>そのひと______しんせつじゃないです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part10" value="は" data-resposta="は" data-grupo="grupo_part" data-id="pt10"> は</label>
+<label><input type="radio" name="grupo_part10" value="より" data-resposta="は" data-grupo="grupo_part" data-id="pt10"> より</label>
+<div id="r_pt10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_part', 'pt')">Corrigir Partículas</button></body></html>

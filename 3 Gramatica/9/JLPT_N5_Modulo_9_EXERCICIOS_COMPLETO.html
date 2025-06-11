@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 9 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 9 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando o vocabulário e as partículas de movimento.</p>
+<div class="card">
+<strong>1. Eu vou para a escola.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="がっこうへいきます。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Tanaka-san vem do Brasil.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="たなかさんはブラジルからきました。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Volto para casa a pé.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="あるいてうちへかえります。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Vou de bicicleta ao parque.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="じてんしゃでこうえんへいきます。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Vou de carro ao supermercado.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="くるまでスーパーへいきます。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Ando da estação até a escola.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="えきからがっこうまであるきます。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Vou de ônibus para a estação.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="バスでえきへいきます。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. Volto para casa às 6 horas.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="6じにうちへかえります。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Você vai de metrô?</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="ちかてつでいきますか。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. O amigo vem para minha casa.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="ともだちがうちへきます。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha a partícula ou expressão correta que completa a frase.</p><div class="card">
+<strong>1. Eu vou de trem à estação.</strong><br>でんしゃ______えきへいきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m1" value="で" data-resposta="で" data-grupo="grupo_m" data-id="m1"> で</label>
+<label><input type="radio" name="grupo_m1" value="から" data-resposta="で" data-grupo="grupo_m" data-id="m1"> から</label>
+<label><input type="radio" name="grupo_m1" value="まで" data-resposta="で" data-grupo="grupo_m" data-id="m1"> まで</label>
+<label><input type="radio" name="grupo_m1" value="に" data-resposta="で" data-grupo="grupo_m" data-id="m1"> に</label>
+<label><input type="radio" name="grupo_m1" value="へ" data-resposta="で" data-grupo="grupo_m" data-id="m1"> へ</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Venho do Japão.</strong><br>にほん______きました。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m2" value="から" data-resposta="から" data-grupo="grupo_m" data-id="m2"> から</label>
+<label><input type="radio" name="grupo_m2" value="で" data-resposta="から" data-grupo="grupo_m" data-id="m2"> で</label>
+<label><input type="radio" name="grupo_m2" value="まで" data-resposta="から" data-grupo="grupo_m" data-id="m2"> まで</label>
+<label><input type="radio" name="grupo_m2" value="へ" data-resposta="から" data-grupo="grupo_m" data-id="m2"> へ</label>
+<label><input type="radio" name="grupo_m2" value="の" data-resposta="から" data-grupo="grupo_m" data-id="m2"> の</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Vou a pé da escola até o parque.</strong><br>がっこう______こうえん______あるきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m3" value="から / まで" data-resposta="から / まで" data-grupo="grupo_m" data-id="m3"> から / まで</label>
+<label><input type="radio" name="grupo_m3" value="で / まで" data-resposta="から / まで" data-grupo="grupo_m" data-id="m3"> で / まで</label>
+<label><input type="radio" name="grupo_m3" value="に / へ" data-resposta="から / まで" data-grupo="grupo_m" data-id="m3"> に / へ</label>
+<label><input type="radio" name="grupo_m3" value="へ / から" data-resposta="から / まで" data-grupo="grupo_m" data-id="m3"> へ / から</label>
+<label><input type="radio" name="grupo_m3" value="の / で" data-resposta="から / まで" data-grupo="grupo_m" data-id="m3"> の / で</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Você volta para casa?</strong><br>うち______かえりますか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m4" value="へ" data-resposta="へ" data-grupo="grupo_m" data-id="m4"> へ</label>
+<label><input type="radio" name="grupo_m4" value="で" data-resposta="へ" data-grupo="grupo_m" data-id="m4"> で</label>
+<label><input type="radio" name="grupo_m4" value="から" data-resposta="へ" data-grupo="grupo_m" data-id="m4"> から</label>
+<label><input type="radio" name="grupo_m4" value="に" data-resposta="へ" data-grupo="grupo_m" data-id="m4"> に</label>
+<label><input type="radio" name="grupo_m4" value="まで" data-resposta="へ" data-grupo="grupo_m" data-id="m4"> まで</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Vou de ônibus.</strong><br>バス______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m5" value="で" data-resposta="で" data-grupo="grupo_m" data-id="m5"> で</label>
+<label><input type="radio" name="grupo_m5" value="へ" data-resposta="で" data-grupo="grupo_m" data-id="m5"> へ</label>
+<label><input type="radio" name="grupo_m5" value="から" data-resposta="で" data-grupo="grupo_m" data-id="m5"> から</label>
+<label><input type="radio" name="grupo_m5" value="の" data-resposta="で" data-grupo="grupo_m" data-id="m5"> の</label>
+<label><input type="radio" name="grupo_m5" value="を" data-resposta="で" data-grupo="grupo_m" data-id="m5"> を</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Volto da estação.</strong><br>えき______かえります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m6" value="から" data-resposta="から" data-grupo="grupo_m" data-id="m6"> から</label>
+<label><input type="radio" name="grupo_m6" value="へ" data-resposta="から" data-grupo="grupo_m" data-id="m6"> へ</label>
+<label><input type="radio" name="grupo_m6" value="まで" data-resposta="から" data-grupo="grupo_m" data-id="m6"> まで</label>
+<label><input type="radio" name="grupo_m6" value="で" data-resposta="から" data-grupo="grupo_m" data-id="m6"> で</label>
+<label><input type="radio" name="grupo_m6" value="を" data-resposta="から" data-grupo="grupo_m" data-id="m6"> を</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Você vai ao supermercado?</strong><br>スーパー______いきますか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m7" value="へ" data-resposta="へ" data-grupo="grupo_m" data-id="m7"> へ</label>
+<label><input type="radio" name="grupo_m7" value="から" data-resposta="へ" data-grupo="grupo_m" data-id="m7"> から</label>
+<label><input type="radio" name="grupo_m7" value="で" data-resposta="へ" data-grupo="grupo_m" data-id="m7"> で</label>
+<label><input type="radio" name="grupo_m7" value="に" data-resposta="へ" data-grupo="grupo_m" data-id="m7"> に</label>
+<label><input type="radio" name="grupo_m7" value="まで" data-resposta="へ" data-grupo="grupo_m" data-id="m7"> まで</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Ando até a escola.</strong><br>がっこう______あるきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m8" value="まで" data-resposta="まで" data-grupo="grupo_m" data-id="m8"> まで</label>
+<label><input type="radio" name="grupo_m8" value="から" data-resposta="まで" data-grupo="grupo_m" data-id="m8"> から</label>
+<label><input type="radio" name="grupo_m8" value="へ" data-resposta="まで" data-grupo="grupo_m" data-id="m8"> へ</label>
+<label><input type="radio" name="grupo_m8" value="に" data-resposta="まで" data-grupo="grupo_m" data-id="m8"> に</label>
+<label><input type="radio" name="grupo_m8" value="で" data-resposta="まで" data-grupo="grupo_m" data-id="m8"> で</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Tanaka-san volta para casa.</strong><br>たなかさんはうち______かえります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m9" value="へ" data-resposta="へ" data-grupo="grupo_m" data-id="m9"> へ</label>
+<label><input type="radio" name="grupo_m9" value="で" data-resposta="へ" data-grupo="grupo_m" data-id="m9"> で</label>
+<label><input type="radio" name="grupo_m9" value="に" data-resposta="へ" data-grupo="grupo_m" data-id="m9"> に</label>
+<label><input type="radio" name="grupo_m9" value="を" data-resposta="へ" data-grupo="grupo_m" data-id="m9"> を</label>
+<label><input type="radio" name="grupo_m9" value="まで" data-resposta="へ" data-grupo="grupo_m" data-id="m9"> まで</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Vou de bicicleta.</strong><br>じてんしゃ______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m10" value="で" data-resposta="で" data-grupo="grupo_m" data-id="m10"> で</label>
+<label><input type="radio" name="grupo_m10" value="に" data-resposta="で" data-grupo="grupo_m" data-id="m10"> に</label>
+<label><input type="radio" name="grupo_m10" value="へ" data-resposta="で" data-grupo="grupo_m" data-id="m10"> へ</label>
+<label><input type="radio" name="grupo_m10" value="まで" data-resposta="で" data-grupo="grupo_m" data-id="m10"> まで</label>
+<label><input type="radio" name="grupo_m10" value="から" data-resposta="で" data-grupo="grupo_m" data-id="m10"> から</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_m', 'm')">Corrigir Múltipla Escolha</button><h2>🚶 Complete com o verbo de movimento correto</h2><p>Escolha entre <strong>いきます</strong>, <strong>きます</strong> ou <strong>かえります</strong>.</p><div class="card">
+<strong>1. がっこうへ________。→ Eu vou para a escola.</strong><br>
+<input type="text" id="v1" data-group="v" data-resposta="いきます">
+<div id="r_v1" class="answer"></div>
+</div>
+<div class="card">
+<strong>2. うちへ________。→ Eu volto para casa.</strong><br>
+<input type="text" id="v2" data-group="v" data-resposta="かえります">
+<div id="r_v2" class="answer"></div>
+</div>
+<div class="card">
+<strong>3. ともだちがきょうしつへ________。→ O amigo vem para a sala de aula.</strong><br>
+<input type="text" id="v3" data-group="v" data-resposta="きます">
+<div id="r_v3" class="answer"></div>
+</div>
+<div class="card">
+<strong>4. スーパーへ________。→ Vou ao supermercado.</strong><br>
+<input type="text" id="v4" data-group="v" data-resposta="いきます">
+<div id="r_v4" class="answer"></div>
+</div>
+<div class="card">
+<strong>5. えきから________。→ Volto da estação.</strong><br>
+<input type="text" id="v5" data-group="v" data-resposta="かえります">
+<div id="r_v5" class="answer"></div>
+</div>
+<div class="card">
+<strong>6. にほんから________。→ Venho do Japão.</strong><br>
+<input type="text" id="v6" data-group="v" data-resposta="きます">
+<div id="r_v6" class="answer"></div>
+</div>
+<div class="card">
+<strong>7. がっこうへともだちと________。→ Vou com um amigo para a escola.</strong><br>
+<input type="text" id="v7" data-group="v" data-resposta="いきます">
+<div id="r_v7" class="answer"></div>
+</div>
+<div class="card">
+<strong>8. ともだちのいえへ________。→ Vou para a casa do amigo.</strong><br>
+<input type="text" id="v8" data-group="v" data-resposta="いきます">
+<div id="r_v8" class="answer"></div>
+</div>
+<div class="card">
+<strong>9. うちへともだちが________。→ O amigo vem para minha casa.</strong><br>
+<input type="text" id="v9" data-group="v" data-resposta="きます">
+<div id="r_v9" class="answer"></div>
+</div>
+<div class="card">
+<strong>10. ともだちのうちから________。→ Volto da casa do amigo.</strong><br>
+<input type="text" id="v10" data-group="v" data-resposta="かえります">
+<div id="r_v10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('v')">Corrigir Verbos</button></body></html>

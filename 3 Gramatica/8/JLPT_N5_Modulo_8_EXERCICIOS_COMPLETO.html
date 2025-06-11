@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 8 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 8 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando os contadores e estruturas do módulo.</p>
+<div class="card">
+<strong>1. Quantas pessoas há?</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="なんにんいますか。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Quantos anos você tem?</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="なんさいですか。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Comprei três maçãs.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="りんごをみっつかいました。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Quantas camisetas você comprou?</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="シャツをなんまいかいましたか。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Me dê duas folhas de papel, por favor.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="かみをにまいください。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Quantas canetas há?</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="ペンはいくつありますか。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Há quatro estudantes.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="がくせいはよにんいます。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. Minha irmã mais nova tem 8 anos.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="いもうとははっさいです。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Comprei cinco pratos.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="おさらをいつつかいました。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. Quantas coisas você comprou?</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="いくつかいましたか。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha o contador ou palavra correta que completa a frase.</p><div class="card">
+<strong>1. Comprei três maçãs.</strong><br>りんごを______かいました。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m1" value="みっつ" data-resposta="みっつ" data-grupo="grupo_m" data-id="m1"> みっつ</label>
+<label><input type="radio" name="grupo_m1" value="さんまい" data-resposta="みっつ" data-grupo="grupo_m" data-id="m1"> さんまい</label>
+<label><input type="radio" name="grupo_m1" value="さんにん" data-resposta="みっつ" data-grupo="grupo_m" data-id="m1"> さんにん</label>
+<label><input type="radio" name="grupo_m1" value="みつ" data-resposta="みっつ" data-grupo="grupo_m" data-id="m1"> みつ</label>
+<label><input type="radio" name="grupo_m1" value="みっち" data-resposta="みっつ" data-grupo="grupo_m" data-id="m1"> みっち</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Há duas pessoas.</strong><br>ふたり______。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m2" value="います" data-resposta="います" data-grupo="grupo_m" data-id="m2"> います</label>
+<label><input type="radio" name="grupo_m2" value="あります" data-resposta="います" data-grupo="grupo_m" data-id="m2"> あります</label>
+<label><input type="radio" name="grupo_m2" value="いきます" data-resposta="います" data-grupo="grupo_m" data-id="m2"> いきます</label>
+<label><input type="radio" name="grupo_m2" value="します" data-resposta="います" data-grupo="grupo_m" data-id="m2"> します</label>
+<label><input type="radio" name="grupo_m2" value="たべます" data-resposta="います" data-grupo="grupo_m" data-id="m2"> たべます</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Quantas pessoas vieram?</strong><br>______きましたか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m3" value="なんにん" data-resposta="なんにん" data-grupo="grupo_m" data-id="m3"> なんにん</label>
+<label><input type="radio" name="grupo_m3" value="なんさい" data-resposta="なんにん" data-grupo="grupo_m" data-id="m3"> なんさい</label>
+<label><input type="radio" name="grupo_m3" value="いくつ" data-resposta="なんにん" data-grupo="grupo_m" data-id="m3"> いくつ</label>
+<label><input type="radio" name="grupo_m3" value="なんまい" data-resposta="なんにん" data-grupo="grupo_m" data-id="m3"> なんまい</label>
+<label><input type="radio" name="grupo_m3" value="なに" data-resposta="なんにん" data-grupo="grupo_m" data-id="m3"> なに</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Ela tem 10 anos.</strong><br>かのじょは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m4" value="じゅっさい" data-resposta="じゅっさい" data-grupo="grupo_m" data-id="m4"> じゅっさい</label>
+<label><input type="radio" name="grupo_m4" value="じゅっつ" data-resposta="じゅっさい" data-grupo="grupo_m" data-id="m4"> じゅっつ</label>
+<label><input type="radio" name="grupo_m4" value="じゅうさい" data-resposta="じゅっさい" data-grupo="grupo_m" data-id="m4"> じゅうさい</label>
+<label><input type="radio" name="grupo_m4" value="じゅっにん" data-resposta="じゅっさい" data-grupo="grupo_m" data-id="m4"> じゅっにん</label>
+<label><input type="radio" name="grupo_m4" value="じゅっまい" data-resposta="じゅっさい" data-grupo="grupo_m" data-id="m4"> じゅっまい</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Me dê uma caneta, por favor.</strong><br>ペンを______ください。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m5" value="いっぽん" data-resposta="いっぽん" data-grupo="grupo_m" data-id="m5"> いっぽん</label>
+<label><input type="radio" name="grupo_m5" value="ひとつ" data-resposta="いっぽん" data-grupo="grupo_m" data-id="m5"> ひとつ</label>
+<label><input type="radio" name="grupo_m5" value="いちにん" data-resposta="いっぽん" data-grupo="grupo_m" data-id="m5"> いちにん</label>
+<label><input type="radio" name="grupo_m5" value="いちまい" data-resposta="いっぽん" data-grupo="grupo_m" data-id="m5"> いちまい</label>
+<label><input type="radio" name="grupo_m5" value="いっさい" data-resposta="いっぽん" data-grupo="grupo_m" data-id="m5"> いっさい</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Quantas camisetas você tem?</strong><br>シャツは______ありますか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m6" value="なんまい" data-resposta="なんまい" data-grupo="grupo_m" data-id="m6"> なんまい</label>
+<label><input type="radio" name="grupo_m6" value="なんにん" data-resposta="なんまい" data-grupo="grupo_m" data-id="m6"> なんにん</label>
+<label><input type="radio" name="grupo_m6" value="なんぽん" data-resposta="なんまい" data-grupo="grupo_m" data-id="m6"> なんぽん</label>
+<label><input type="radio" name="grupo_m6" value="いくつ" data-resposta="なんまい" data-grupo="grupo_m" data-id="m6"> いくつ</label>
+<label><input type="radio" name="grupo_m6" value="なんさい" data-resposta="なんまい" data-grupo="grupo_m" data-id="m6"> なんさい</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Há cinco estudantes.</strong><br>がくせいは______います。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m7" value="ごにん" data-resposta="ごにん" data-grupo="grupo_m" data-id="m7"> ごにん</label>
+<label><input type="radio" name="grupo_m7" value="ごまい" data-resposta="ごにん" data-grupo="grupo_m" data-id="m7"> ごまい</label>
+<label><input type="radio" name="grupo_m7" value="ごほん" data-resposta="ごにん" data-grupo="grupo_m" data-id="m7"> ごほん</label>
+<label><input type="radio" name="grupo_m7" value="ごつ" data-resposta="ごにん" data-grupo="grupo_m" data-id="m7"> ごつ</label>
+<label><input type="radio" name="grupo_m7" value="ごさい" data-resposta="ごにん" data-grupo="grupo_m" data-id="m7"> ごさい</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Quantos pratos há?</strong><br>おさらは______ありますか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m8" value="いくつ" data-resposta="いくつ" data-grupo="grupo_m" data-id="m8"> いくつ</label>
+<label><input type="radio" name="grupo_m8" value="なんにん" data-resposta="いくつ" data-grupo="grupo_m" data-id="m8"> なんにん</label>
+<label><input type="radio" name="grupo_m8" value="なんさい" data-resposta="いくつ" data-grupo="grupo_m" data-id="m8"> なんさい</label>
+<label><input type="radio" name="grupo_m8" value="なんまい" data-resposta="いくつ" data-grupo="grupo_m" data-id="m8"> なんまい</label>
+<label><input type="radio" name="grupo_m8" value="なに" data-resposta="いくつ" data-grupo="grupo_m" data-id="m8"> なに</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Ela tem 18 anos.</strong><br>かのじょは______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m9" value="じゅうはっさい" data-resposta="じゅうはっさい" data-grupo="grupo_m" data-id="m9"> じゅうはっさい</label>
+<label><input type="radio" name="grupo_m9" value="じゅうはちさい" data-resposta="じゅうはっさい" data-grupo="grupo_m" data-id="m9"> じゅうはちさい</label>
+<label><input type="radio" name="grupo_m9" value="じゅうはちにん" data-resposta="じゅうはっさい" data-grupo="grupo_m" data-id="m9"> じゅうはちにん</label>
+<label><input type="radio" name="grupo_m9" value="じゅうはちまい" data-resposta="じゅうはっさい" data-grupo="grupo_m" data-id="m9"> じゅうはちまい</label>
+<label><input type="radio" name="grupo_m9" value="はっさい" data-resposta="じゅうはっさい" data-grupo="grupo_m" data-id="m9"> はっさい</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Quantos anos sua mãe tem?</strong><br>おかあさんは______ですか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m10" value="なんさい" data-resposta="なんさい" data-grupo="grupo_m" data-id="m10"> なんさい</label>
+<label><input type="radio" name="grupo_m10" value="なんにん" data-resposta="なんさい" data-grupo="grupo_m" data-id="m10"> なんにん</label>
+<label><input type="radio" name="grupo_m10" value="いくつ" data-resposta="なんさい" data-grupo="grupo_m" data-id="m10"> いくつ</label>
+<label><input type="radio" name="grupo_m10" value="なんまい" data-resposta="なんさい" data-grupo="grupo_m" data-id="m10"> なんまい</label>
+<label><input type="radio" name="grupo_m10" value="なんぽん" data-resposta="なんさい" data-grupo="grupo_m" data-id="m10"> なんぽん</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_m', 'm')">Corrigir Múltipla Escolha</button><h2>🔢 Complete com o contador correto</h2><p>Complete com o substantivo correto de acordo com a tradução. Atenção ao uso dos contadores.</p><div class="card">
+<strong>1. ______をにまいかいました。→ Comprei dois papéis.</strong><br>
+<input type="text" id="cont1" data-group="cont" data-resposta="かみ">
+<div id="r_cont1" class="answer"></div>
+</div>
+<div class="card">
+<strong>2. ______をみっつたべました。→ Comi três maçãs.</strong><br>
+<input type="text" id="cont2" data-group="cont" data-resposta="りんご">
+<div id="r_cont2" class="answer"></div>
+</div>
+<div class="card">
+<strong>3. ______をよんほんのみました。→ Bebi quatro garrafas.</strong><br>
+<input type="text" id="cont3" data-group="cont" data-resposta="ジュース">
+<div id="r_cont3" class="answer"></div>
+</div>
+<div class="card">
+<strong>4. ______はごにんいます。→ Há cinco pessoas.</strong><br>
+<input type="text" id="cont4" data-group="cont" data-resposta="がくせい">
+<div id="r_cont4" class="answer"></div>
+</div>
+<div class="card">
+<strong>5. ______をいっぽんください。→ Me dê um lápis.</strong><br>
+<input type="text" id="cont5" data-group="cont" data-resposta="えんぴつ">
+<div id="r_cont5" class="answer"></div>
+</div>
+<div class="card">
+<strong>6. ______をななまいかいました。→ Comprei sete camisetas.</strong><br>
+<input type="text" id="cont6" data-group="cont" data-resposta="シャツ">
+<div id="r_cont6" class="answer"></div>
+</div>
+<div class="card">
+<strong>7. ______はにじゅっさいです。→ Ele tem 20 anos.</strong><br>
+<input type="text" id="cont7" data-group="cont" data-resposta="たなかさん">
+<div id="r_cont7" class="answer"></div>
+</div>
+<div class="card">
+<strong>8. ______はいくつありますか。→ Quantos pratos tem?</strong><br>
+<input type="text" id="cont8" data-group="cont" data-resposta="おさら">
+<div id="r_cont8" class="answer"></div>
+</div>
+<div class="card">
+<strong>9. ______はなんさいですか。→ Quantos anos sua irmã tem?</strong><br>
+<input type="text" id="cont9" data-group="cont" data-resposta="いもうと">
+<div id="r_cont9" class="answer"></div>
+</div>
+<div class="card">
+<strong>10. ______をふたつかいました。→ Comprei duas coisas.</strong><br>
+<input type="text" id="cont10" data-group="cont" data-resposta="おにぎり">
+<div id="r_cont10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('cont')">Corrigir Contadores</button></body></html>

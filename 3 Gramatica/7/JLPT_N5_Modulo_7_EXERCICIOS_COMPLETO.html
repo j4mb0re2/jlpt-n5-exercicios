@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 7 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 7 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando o vocabulário aprendido. Clique no botão para ver se está certo.</p>
+<div class="card">
+<strong>1. Este é meu pai.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="これはわたしのちちです。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Essa é minha mãe.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="それはわたしのははです。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Quem é aquela pessoa?</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="あのひとはだれですか。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Este é o irmão mais novo do Tanaka.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="これはたなかさんのおとうとです。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. De quem é esta mochila?</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="これはだれのかばんですか。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Esta é a avó da Maria.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="これはマリアさんのおばあさんです。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Aquela é a irmã mais velha do João.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="あれはジョンさんのおねえさんです。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. Quem é seu irmão mais velho?</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="あなたのおにいさんはだれですか。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Esta é minha família.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="これはわたしのかぞくです。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. A mãe da Yuki é gentil.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="ゆきさんのおかあさんはしんせつです。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha a palavra ou estrutura correta que completa a frase.</p><div class="card">
+<strong>1. Este é meu irmão mais velho.</strong><br>これはわたしの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m1" value="あに" data-resposta="あに" data-grupo="grupo_m" data-id="m1"> あに</label>
+<label><input type="radio" name="grupo_m1" value="あね" data-resposta="あに" data-grupo="grupo_m" data-id="m1"> あね</label>
+<label><input type="radio" name="grupo_m1" value="おとうと" data-resposta="あに" data-grupo="grupo_m" data-id="m1"> おとうと</label>
+<label><input type="radio" name="grupo_m1" value="ちち" data-resposta="あに" data-grupo="grupo_m" data-id="m1"> ちち</label>
+<label><input type="radio" name="grupo_m1" value="そふ" data-resposta="あに" data-grupo="grupo_m" data-id="m1"> そふ</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Aquela é minha avó.</strong><br>あれはわたしの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m2" value="そぼ" data-resposta="そぼ" data-grupo="grupo_m" data-id="m2"> そぼ</label>
+<label><input type="radio" name="grupo_m2" value="おば" data-resposta="そぼ" data-grupo="grupo_m" data-id="m2"> おば</label>
+<label><input type="radio" name="grupo_m2" value="そふ" data-resposta="そぼ" data-grupo="grupo_m" data-id="m2"> そふ</label>
+<label><input type="radio" name="grupo_m2" value="ちち" data-resposta="そぼ" data-grupo="grupo_m" data-id="m2"> ちち</label>
+<label><input type="radio" name="grupo_m2" value="はは" data-resposta="そぼ" data-grupo="grupo_m" data-id="m2"> はは</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. De quem é esta bolsa?</strong><br>これは______かばんですか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m3" value="だれの" data-resposta="だれの" data-grupo="grupo_m" data-id="m3"> だれの</label>
+<label><input type="radio" name="grupo_m3" value="わたしの" data-resposta="だれの" data-grupo="grupo_m" data-id="m3"> わたしの</label>
+<label><input type="radio" name="grupo_m3" value="あなた" data-resposta="だれの" data-grupo="grupo_m" data-id="m3"> あなた</label>
+<label><input type="radio" name="grupo_m3" value="おば" data-resposta="だれの" data-grupo="grupo_m" data-id="m3"> おば</label>
+<label><input type="radio" name="grupo_m3" value="の" data-resposta="だれの" data-grupo="grupo_m" data-id="m3"> の</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Quem é aquela pessoa?</strong><br>あのひとは______ですか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m4" value="だれ" data-resposta="だれ" data-grupo="grupo_m" data-id="m4"> だれ</label>
+<label><input type="radio" name="grupo_m4" value="どこ" data-resposta="だれ" data-grupo="grupo_m" data-id="m4"> どこ</label>
+<label><input type="radio" name="grupo_m4" value="なん" data-resposta="だれ" data-grupo="grupo_m" data-id="m4"> なん</label>
+<label><input type="radio" name="grupo_m4" value="どれ" data-resposta="だれ" data-grupo="grupo_m" data-id="m4"> どれ</label>
+<label><input type="radio" name="grupo_m4" value="の" data-resposta="だれ" data-grupo="grupo_m" data-id="m4"> の</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Este é o tio do Ken.</strong><br>これはけんさんの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m5" value="おじ" data-resposta="おじ" data-grupo="grupo_m" data-id="m5"> おじ</label>
+<label><input type="radio" name="grupo_m5" value="おじいさん" data-resposta="おじ" data-grupo="grupo_m" data-id="m5"> おじいさん</label>
+<label><input type="radio" name="grupo_m5" value="おにいさん" data-resposta="おじ" data-grupo="grupo_m" data-id="m5"> おにいさん</label>
+<label><input type="radio" name="grupo_m5" value="おとうさん" data-resposta="おじ" data-grupo="grupo_m" data-id="m5"> おとうさん</label>
+<label><input type="radio" name="grupo_m5" value="そふ" data-resposta="おじ" data-grupo="grupo_m" data-id="m5"> そふ</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Essa é minha mãe.</strong><br>それはわたしの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m6" value="はは" data-resposta="はは" data-grupo="grupo_m" data-id="m6"> はは</label>
+<label><input type="radio" name="grupo_m6" value="おかあさん" data-resposta="はは" data-grupo="grupo_m" data-id="m6"> おかあさん</label>
+<label><input type="radio" name="grupo_m6" value="あね" data-resposta="はは" data-grupo="grupo_m" data-id="m6"> あね</label>
+<label><input type="radio" name="grupo_m6" value="いもうと" data-resposta="はは" data-grupo="grupo_m" data-id="m6"> いもうと</label>
+<label><input type="radio" name="grupo_m6" value="おば" data-resposta="はは" data-grupo="grupo_m" data-id="m6"> おば</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Aquele é o pai do Tanaka.</strong><br>あれはたなかさんの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m7" value="おとうさん" data-resposta="おとうさん" data-grupo="grupo_m" data-id="m7"> おとうさん</label>
+<label><input type="radio" name="grupo_m7" value="おじさん" data-resposta="おとうさん" data-grupo="grupo_m" data-id="m7"> おじさん</label>
+<label><input type="radio" name="grupo_m7" value="おにいさん" data-resposta="おとうさん" data-grupo="grupo_m" data-id="m7"> おにいさん</label>
+<label><input type="radio" name="grupo_m7" value="おじいさん" data-resposta="おとうさん" data-grupo="grupo_m" data-id="m7"> おじいさん</label>
+<label><input type="radio" name="grupo_m7" value="ちち" data-resposta="おとうさん" data-grupo="grupo_m" data-id="m7"> ちち</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Esta é a irmã mais nova do professor.</strong><br>これはせんせいの______です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m8" value="いもうと" data-resposta="いもうと" data-grupo="grupo_m" data-id="m8"> いもうと</label>
+<label><input type="radio" name="grupo_m8" value="おねえさん" data-resposta="いもうと" data-grupo="grupo_m" data-id="m8"> おねえさん</label>
+<label><input type="radio" name="grupo_m8" value="あね" data-resposta="いもうと" data-grupo="grupo_m" data-id="m8"> あね</label>
+<label><input type="radio" name="grupo_m8" value="おとうと" data-resposta="いもうと" data-grupo="grupo_m" data-id="m8"> おとうと</label>
+<label><input type="radio" name="grupo_m8" value="そぼ" data-resposta="いもうと" data-grupo="grupo_m" data-id="m8"> そぼ</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. De quem é essa família?</strong><br>それは______かぞくですか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m9" value="だれの" data-resposta="だれの" data-grupo="grupo_m" data-id="m9"> だれの</label>
+<label><input type="radio" name="grupo_m9" value="ははの" data-resposta="だれの" data-grupo="grupo_m" data-id="m9"> ははの</label>
+<label><input type="radio" name="grupo_m9" value="おばの" data-resposta="だれの" data-grupo="grupo_m" data-id="m9"> おばの</label>
+<label><input type="radio" name="grupo_m9" value="ちち" data-resposta="だれの" data-grupo="grupo_m" data-id="m9"> ちち</label>
+<label><input type="radio" name="grupo_m9" value="おじ" data-resposta="だれの" data-grupo="grupo_m" data-id="m9"> おじ</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Quem é o irmão mais velho da Maria?</strong><br>マリアさんのおにいさんは______ですか。
+<div class="alt-group">
+<label><input type="radio" name="grupo_m10" value="だれ" data-resposta="だれ" data-grupo="grupo_m" data-id="m10"> だれ</label>
+<label><input type="radio" name="grupo_m10" value="どれ" data-resposta="だれ" data-grupo="grupo_m" data-id="m10"> どれ</label>
+<label><input type="radio" name="grupo_m10" value="なに" data-resposta="だれ" data-grupo="grupo_m" data-id="m10"> なに</label>
+<label><input type="radio" name="grupo_m10" value="どこ" data-resposta="だれ" data-grupo="grupo_m" data-id="m10"> どこ</label>
+<label><input type="radio" name="grupo_m10" value="おにいさん" data-resposta="だれ" data-grupo="grupo_m" data-id="m10"> おにいさん</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_m', 'm')">Corrigir Múltipla Escolha</button><h2>❓ Complete com だれ ou だれの</h2><p>Escolha entre <strong>だれ</strong> (quem) ou <strong>だれの</strong> (de quem) para completar a frase.</p><div class="card">
+<strong>1. ______かばんですか。→ De quem é a mochila?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare1" value="だれ" data-resposta="だれの" data-grupo="grupo_dare" data-id="d1"> だれ</label>
+<label><input type="radio" name="grupo_dare1" value="だれの" data-resposta="だれの" data-grupo="grupo_dare" data-id="d1"> だれの</label>
+<div id="r_d1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. ______がきましたか。→ Quem veio?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare2" value="だれ" data-resposta="だれ" data-grupo="grupo_dare" data-id="d2"> だれ</label>
+<label><input type="radio" name="grupo_dare2" value="だれの" data-resposta="だれ" data-grupo="grupo_dare" data-id="d2"> だれの</label>
+<div id="r_d2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. これは______ほんですか。→ Este livro é de quem?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare3" value="だれ" data-resposta="だれの" data-grupo="grupo_dare" data-id="d3"> だれ</label>
+<label><input type="radio" name="grupo_dare3" value="だれの" data-resposta="だれの" data-grupo="grupo_dare" data-id="d3"> だれの</label>
+<div id="r_d3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. ______がいますか。→ Quem está aí?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare4" value="だれ" data-resposta="だれ" data-grupo="grupo_dare" data-id="d4"> だれ</label>
+<label><input type="radio" name="grupo_dare4" value="だれの" data-resposta="だれ" data-grupo="grupo_dare" data-id="d4"> だれの</label>
+<div id="r_d4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. あれは______ですか。→ Quem é aquilo?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare5" value="だれ" data-resposta="だれ" data-grupo="grupo_dare" data-id="d5"> だれ</label>
+<label><input type="radio" name="grupo_dare5" value="だれの" data-resposta="だれ" data-grupo="grupo_dare" data-id="d5"> だれの</label>
+<div id="r_d5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. これは______いぬですか。→ Este cachorro é de quem?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare6" value="だれ" data-resposta="だれの" data-grupo="grupo_dare" data-id="d6"> だれ</label>
+<label><input type="radio" name="grupo_dare6" value="だれの" data-resposta="だれの" data-grupo="grupo_dare" data-id="d6"> だれの</label>
+<div id="r_d6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. ______ねこですか。→ De quem é o gato?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare7" value="だれ" data-resposta="だれの" data-grupo="grupo_dare" data-id="d7"> だれ</label>
+<label><input type="radio" name="grupo_dare7" value="だれの" data-resposta="だれの" data-grupo="grupo_dare" data-id="d7"> だれの</label>
+<div id="r_d7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. ______がせんせいですか。→ Quem é o professor?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare8" value="だれ" data-resposta="だれ" data-grupo="grupo_dare" data-id="d8"> だれ</label>
+<label><input type="radio" name="grupo_dare8" value="だれの" data-resposta="だれ" data-grupo="grupo_dare" data-id="d8"> だれの</label>
+<div id="r_d8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. これは______おばさんですか。→ Esta é a tia de quem?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare9" value="だれ" data-resposta="だれの" data-grupo="grupo_dare" data-id="d9"> だれ</label>
+<label><input type="radio" name="grupo_dare9" value="だれの" data-resposta="だれの" data-grupo="grupo_dare" data-id="d9"> だれの</label>
+<div id="r_d9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. ______がたなかさんですか。→ Quem é Tanaka-san?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_dare10" value="だれ" data-resposta="だれ" data-grupo="grupo_dare" data-id="d10"> だれ</label>
+<label><input type="radio" name="grupo_dare10" value="だれの" data-resposta="だれ" data-grupo="grupo_dare" data-id="d10"> だれの</label>
+<div id="r_d10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_dare', 'd')">Corrigir だれ / だれの</button><h2>🔗 Complete com の</h2><p>Complete as frases com <strong>の</strong> para indicar posse.</p><div class="card">
+<strong>1. これはわたし______ほんです。→ Este é meu livro.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse1" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p1"> の</label>
+<label><input type="radio" name="grupo_posse1" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p1"> が</label>
+<label><input type="radio" name="grupo_posse1" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p1"> を</label>
+<div id="r_p1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. それはたなかさん______くるまです。→ Esse é o carro do Tanaka.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse2" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p2"> の</label>
+<label><input type="radio" name="grupo_posse2" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p2"> が</label>
+<label><input type="radio" name="grupo_posse2" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p2"> を</label>
+<div id="r_p2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. これはせんせい______いぬです。→ Este é o cachorro do professor.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse3" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p3"> の</label>
+<label><input type="radio" name="grupo_posse3" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p3"> が</label>
+<label><input type="radio" name="grupo_posse3" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p3"> を</label>
+<div id="r_p3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. あれはゆきさん______おとうさんです。→ Aquele é o pai da Yuki.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse4" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p4"> の</label>
+<label><input type="radio" name="grupo_posse4" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p4"> が</label>
+<label><input type="radio" name="grupo_posse4" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p4"> を</label>
+<div id="r_p4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. これはけんさん______いもうとです。→ Esta é a irmã mais nova do Ken.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse5" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p5"> の</label>
+<label><input type="radio" name="grupo_posse5" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p5"> が</label>
+<label><input type="radio" name="grupo_posse5" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p5"> を</label>
+<div id="r_p5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. それはジョンさん______ともだちです。→ Esse é o amigo do John.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse6" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p6"> の</label>
+<label><input type="radio" name="grupo_posse6" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p6"> が</label>
+<label><input type="radio" name="grupo_posse6" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p6"> を</label>
+<div id="r_p6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. これはわたし______おばあさんです。→ Esta é minha avó.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse7" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p7"> の</label>
+<label><input type="radio" name="grupo_posse7" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p7"> が</label>
+<label><input type="radio" name="grupo_posse7" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p7"> を</label>
+<div id="r_p7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. あれはあなた______おかあさんですか。→ Aquela é sua mãe?</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse8" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p8"> の</label>
+<label><input type="radio" name="grupo_posse8" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p8"> が</label>
+<label><input type="radio" name="grupo_posse8" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p8"> を</label>
+<div id="r_p8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. これはマリアさん______ねこです。→ Este é o gato da Maria.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse9" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p9"> の</label>
+<label><input type="radio" name="grupo_posse9" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p9"> が</label>
+<label><input type="radio" name="grupo_posse9" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p9"> を</label>
+<div id="r_p9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. それはちち______かばんです。→ Essa é a bolsa do meu pai.</strong>
+<div class="alt-group">
+<label><input type="radio" name="grupo_posse10" value="の" data-resposta="の" data-grupo="grupo_posse" data-id="p10"> の</label>
+<label><input type="radio" name="grupo_posse10" value="が" data-resposta="の" data-grupo="grupo_posse" data-id="p10"> が</label>
+<label><input type="radio" name="grupo_posse10" value="を" data-resposta="の" data-grupo="grupo_posse" data-id="p10"> を</label>
+<div id="r_p10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_posse', 'p')">Corrigir の</button></body></html>

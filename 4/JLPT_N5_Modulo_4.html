@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JLPT N5 - Módulo 4 - Frases e Expressões Comuns</title>
+    <style>
+        body { font-family: sans-serif; max-width: 850px; margin: auto; padding: 20px; }
+        h2 { color: #1f4e79; }
+        .question { margin-bottom: 20px; background-color: #eef5fb; padding: 15px; border-radius: 8px; }
+        .resposta { font-weight: bold; margin-top: 10px; }
+        .hidden { display: none; }
+        input[type="text"] { width: 100%; padding: 6px; margin-top: 5px; }
+        button { margin-top: 10px; padding: 6px 12px; }
+    </style>
+    <script>
+        function corrigirTraducao(id, correta) {
+            const entrada = document.getElementById("entrada_" + id).value.trim();
+            const resposta = document.getElementById("resposta_" + id);
+            if (entrada === correta) {
+                resposta.innerHTML = "✅ Correto!";
+                resposta.style.color = "green";
+            } else {
+                resposta.innerHTML = "❌ Incorreto. Resposta certa: " + correta;
+                resposta.style.color = "red";
+            }
+        }
+
+        function corrigirAlternativas() {
+            const respostas = {
+                alt1: "こんにちは",
+                alt2: "ただいま",
+                alt3: "ありがとうございます",
+                alt4: "いってらっしゃい",
+                alt5: "よろしく おねがいします",
+                alt6: "どういたしまして"
+            };
+
+            for (let [id, correta] of Object.entries(respostas)) {
+                const selecionado = document.querySelector('input[name="' + id + '"]:checked');
+                const resposta = document.getElementById("resp_" + id);
+                if (!selecionado) {
+                    resposta.innerHTML = "❗ Escolha uma opção.";
+                    resposta.style.color = "orange";
+                } else if (selecionado.value === correta) {
+                    resposta.innerHTML = "✅ Correto!";
+                    resposta.style.color = "green";
+                } else {
+                    resposta.innerHTML = "❌ Incorreto. Correto: " + correta;
+                    resposta.style.color = "red";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>JLPT N5 - Módulo 4</h1>
+    <h2>Exercícios: Traduza para o japonês</h2>
+
+    <div class="question">
+        <b>1. Muito obrigado (forma educada)</b><br>
+        <input type="text" id="entrada_1">
+        <button onclick="corrigirTraducao(1, 'ありがとうございます')">Corrigir</button>
+        <div class="resposta" id="resposta_1"></div>
+    </div>
+
+    <div class="question">
+        <b>2. Estou saindo (de casa)</b><br>
+        <input type="text" id="entrada_2">
+        <button onclick="corrigirTraducao(2, 'いってきます')">Corrigir</button>
+        <div class="resposta" id="resposta_2"></div>
+    </div>
+
+    <div class="question">
+        <b>3. De nada</b><br>
+        <input type="text" id="entrada_3">
+        <button onclick="corrigirTraducao(3, 'どういたしまして')">Corrigir</button>
+        <div class="resposta" id="resposta_3"></div>
+    </div>
+
+    <h2>Exercícios: Marque a alternativa correta</h2>
+
+    <div class="question">
+        <b>1. Qual é a saudação comum durante a tarde?</b><br>
+        <label><input type="radio" name="alt1" value="おはよう"> おはよう</label><br>
+        <label><input type="radio" name="alt1" value="こんにちは"> こんにちは</label><br>
+        <label><input type="radio" name="alt1" value="こんばんは"> こんばんは</label><br>
+        <label><input type="radio" name="alt1" value="さようなら"> さようなら</label><br>
+        <div class="resposta" id="resp_alt1"></div>
+    </div>
+
+    <div class="question">
+        <b>2. Qual expressão significa “cheguei (ao voltar)”?</b><br>
+        <label><input type="radio" name="alt2" value="いってきます"> いってきます</label><br>
+        <label><input type="radio" name="alt2" value="おかえりなさい"> おかえりなさい</label><br>
+        <label><input type="radio" name="alt2" value="ただいま"> ただいま</label><br>
+        <label><input type="radio" name="alt2" value="さようなら"> さようなら</label><br>
+        <div class="resposta" id="resp_alt2"></div>
+    </div>
+
+    <div class="question">
+        <b>3. Como se diz "muito obrigado" de forma educada?</b><br>
+        <label><input type="radio" name="alt3" value="ありがとう"> ありがとう</label><br>
+        <label><input type="radio" name="alt3" value="ありがとうございます"> ありがとうございます</label><br>
+        <label><input type="radio" name="alt3" value="どういたしまして"> どういたしまして</label><br>
+        <label><input type="radio" name="alt3" value="ください"> ください</label><br>
+        <div class="resposta" id="resp_alt3"></div>
+    </div>
+
+    <div class="question">
+        <b>4. Qual é a resposta comum a “いってきます”?</b><br>
+        <label><input type="radio" name="alt4" value="ただいま"> ただいま</label><br>
+        <label><input type="radio" name="alt4" value="いってらっしゃい"> いってらっしゃい</label><br>
+        <label><input type="radio" name="alt4" value="おはよう"> おはよう</label><br>
+        <label><input type="radio" name="alt4" value="こんばんは"> こんばんは</label><br>
+        <div class="resposta" id="resp_alt4"></div>
+    </div>
+
+    <div class="question">
+        <b>5. Qual expressão é usada após se apresentar a alguém?</b><br>
+        <label><input type="radio" name="alt5" value="さようなら"> さようなら</label><br>
+        <label><input type="radio" name="alt5" value="どういたしまして"> どういたしまして</label><br>
+        <label><input type="radio" name="alt5" value="こんにちは"> こんにちは</label><br>
+        <label><input type="radio" name="alt5" value="よろしく おねがいします"> よろしく おねがいします</label><br>
+        <div class="resposta" id="resp_alt5"></div>
+    </div>
+
+    <div class="question">
+        <b>6. O que significa "dou itashimashite"?</b><br>
+        <label><input type="radio" name="alt6" value="おはよう"> おはよう</label><br>
+        <label><input type="radio" name="alt6" value="ありがとうございます"> ありがとうございます</label><br>
+        <label><input type="radio" name="alt6" value="どういたしまして"> どういたしまして</label><br>
+        <label><input type="radio" name="alt6" value="こんばんは"> こんばんは</label><br>
+        <div class="resposta" id="resp_alt6"></div>
+    </div>
+
+    <button onclick="corrigirAlternativas()">Corrigir alternativas</button>
+</body>
+</html>

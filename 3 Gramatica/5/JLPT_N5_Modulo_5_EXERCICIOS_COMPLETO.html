@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 5 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 5 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando o vocabulário aprendido. Clique no botão para ver se está certo.</p>
+<div class="card">
+<strong>1. Eu como arroz.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="ごはんをたべます。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Eu bebo chá.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="おちゃをのみます。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. Eu estudo japonês.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="にほんごをべんきょうします。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. Eu assisto TV.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="テレビをみます。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Eu vou para a escola.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="がっこうへいきます。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Eu volto para casa.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="うちにかえります。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Eu leio um livro.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="ほんをよみます。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. Eu acordo às 6h.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="６じにおきます。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Eu durmo às 10h.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="１０じにねます。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. Eu não bebo café.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="コーヒーをのみません。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha a palavra ou partícula correta para completar a frase.</p><div class="card">
+<strong>1. Eu como pão.</strong><br>パン______たべます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla1" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m1"> を</label>
+<label><input type="radio" name="grupo_multipla1" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m1"> に</label>
+<label><input type="radio" name="grupo_multipla1" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m1"> へ</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Eu vou para a estação.</strong><br>えき______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla2" value="へ" data-resposta="へ" data-grupo="grupo_multipla" data-id="m2"> へ</label>
+<label><input type="radio" name="grupo_multipla2" value="を" data-resposta="へ" data-grupo="grupo_multipla" data-id="m2"> を</label>
+<label><input type="radio" name="grupo_multipla2" value="に" data-resposta="へ" data-grupo="grupo_multipla" data-id="m2"> に</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Eu estudo japonês.</strong><br>にほんご______べんきょうします。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla3" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m3"> を</label>
+<label><input type="radio" name="grupo_multipla3" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m3"> に</label>
+<label><input type="radio" name="grupo_multipla3" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m3"> へ</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Eu volto para casa.</strong><br>うち______かえります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla4" value="に" data-resposta="に" data-grupo="grupo_multipla" data-id="m4"> に</label>
+<label><input type="radio" name="grupo_multipla4" value="を" data-resposta="に" data-grupo="grupo_multipla" data-id="m4"> を</label>
+<label><input type="radio" name="grupo_multipla4" value="へ" data-resposta="に" data-grupo="grupo_multipla" data-id="m4"> へ</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Eu bebo água.</strong><br>みず______のみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla5" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m5"> を</label>
+<label><input type="radio" name="grupo_multipla5" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m5"> へ</label>
+<label><input type="radio" name="grupo_multipla5" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m5"> に</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Eu leio livros.</strong><br>ほん______よみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla6" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m6"> を</label>
+<label><input type="radio" name="grupo_multipla6" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m6"> へ</label>
+<label><input type="radio" name="grupo_multipla6" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m6"> に</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Eu assisto televisão.</strong><br>テレビ______みます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla7" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m7"> を</label>
+<label><input type="radio" name="grupo_multipla7" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m7"> に</label>
+<label><input type="radio" name="grupo_multipla7" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m7"> へ</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Eu vou para a escola às 7h.</strong><br>７じにがっこう______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla8" value="へ" data-resposta="へ" data-grupo="grupo_multipla" data-id="m8"> へ</label>
+<label><input type="radio" name="grupo_multipla8" value="に" data-resposta="へ" data-grupo="grupo_multipla" data-id="m8"> に</label>
+<label><input type="radio" name="grupo_multipla8" value="を" data-resposta="へ" data-grupo="grupo_multipla" data-id="m8"> を</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Eu não como arroz.</strong><br>ごはん______たべません。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla9" value="を" data-resposta="を" data-grupo="grupo_multipla" data-id="m9"> を</label>
+<label><input type="radio" name="grupo_multipla9" value="に" data-resposta="を" data-grupo="grupo_multipla" data-id="m9"> に</label>
+<label><input type="radio" name="grupo_multipla9" value="へ" data-resposta="を" data-grupo="grupo_multipla" data-id="m9"> へ</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Eu acordo às 6h.</strong><br>６じ______おきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla10" value="に" data-resposta="に" data-grupo="grupo_multipla" data-id="m10"> に</label>
+<label><input type="radio" name="grupo_multipla10" value="を" data-resposta="に" data-grupo="grupo_multipla" data-id="m10"> を</label>
+<label><input type="radio" name="grupo_multipla10" value="へ" data-resposta="に" data-grupo="grupo_multipla" data-id="m10"> へ</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_multipla', 'm')">Corrigir Múltipla Escolha</button><h2>🔁 Complete com a palavra de frequência</h2><p>Escolha entre よく、ときどき、あまり、ぜんぜん para indicar frequência.</p><div class="card">
+<strong>1. Frequentemente como pão.</strong><br>______パンをたべます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq1" value="よく" data-resposta="よく" data-grupo="grupo_freq" data-id="fr1"> よく</label>
+<label><input type="radio" name="grupo_freq1" value="ときどき" data-resposta="よく" data-grupo="grupo_freq" data-id="fr1"> ときどき</label>
+<label><input type="radio" name="grupo_freq1" value="あまり" data-resposta="よく" data-grupo="grupo_freq" data-id="fr1"> あまり</label>
+<label><input type="radio" name="grupo_freq1" value="ぜんぜん" data-resposta="よく" data-grupo="grupo_freq" data-id="fr1"> ぜんぜん</label>
+<div id="r_fr1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Às vezes bebo chá.</strong><br>______おちゃをのみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq2" value="よく" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr2"> よく</label>
+<label><input type="radio" name="grupo_freq2" value="ときどき" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr2"> ときどき</label>
+<label><input type="radio" name="grupo_freq2" value="あまり" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr2"> あまり</label>
+<label><input type="radio" name="grupo_freq2" value="ぜんぜん" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr2"> ぜんぜん</label>
+<div id="r_fr2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Raramente estudo à noite.</strong><br>______よるにべんきょうします。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq3" value="よく" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr3"> よく</label>
+<label><input type="radio" name="grupo_freq3" value="ときどき" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr3"> ときどき</label>
+<label><input type="radio" name="grupo_freq3" value="あまり" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr3"> あまり</label>
+<label><input type="radio" name="grupo_freq3" value="ぜんぜん" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr3"> ぜんぜん</label>
+<div id="r_fr3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Nunca assisto TV.</strong><br>______テレビをみません。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq4" value="よく" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr4"> よく</label>
+<label><input type="radio" name="grupo_freq4" value="ときどき" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr4"> ときどき</label>
+<label><input type="radio" name="grupo_freq4" value="あまり" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr4"> あまり</label>
+<label><input type="radio" name="grupo_freq4" value="ぜんぜん" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr4"> ぜんぜん</label>
+<div id="r_fr4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Frequentemente vou à escola.</strong><br>______がっこうへいきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq5" value="よく" data-resposta="よく" data-grupo="grupo_freq" data-id="fr5"> よく</label>
+<label><input type="radio" name="grupo_freq5" value="ときどき" data-resposta="よく" data-grupo="grupo_freq" data-id="fr5"> ときどき</label>
+<label><input type="radio" name="grupo_freq5" value="あまり" data-resposta="よく" data-grupo="grupo_freq" data-id="fr5"> あまり</label>
+<label><input type="radio" name="grupo_freq5" value="ぜんぜん" data-resposta="よく" data-grupo="grupo_freq" data-id="fr5"> ぜんぜん</label>
+<div id="r_fr5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Às vezes leio livros.</strong><br>______ほんをよみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq6" value="よく" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr6"> よく</label>
+<label><input type="radio" name="grupo_freq6" value="ときどき" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr6"> ときどき</label>
+<label><input type="radio" name="grupo_freq6" value="あまり" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr6"> あまり</label>
+<label><input type="radio" name="grupo_freq6" value="ぜんぜん" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr6"> ぜんぜん</label>
+<div id="r_fr6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Raramente bebo café.</strong><br>______コーヒーをのみません。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq7" value="よく" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr7"> よく</label>
+<label><input type="radio" name="grupo_freq7" value="ときどき" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr7"> ときどき</label>
+<label><input type="radio" name="grupo_freq7" value="あまり" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr7"> あまり</label>
+<label><input type="radio" name="grupo_freq7" value="ぜんぜん" data-resposta="あまり" data-grupo="grupo_freq" data-id="fr7"> ぜんぜん</label>
+<div id="r_fr7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Nunca leio à noite.</strong><br>______よるにほんをよみません。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq8" value="よく" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr8"> よく</label>
+<label><input type="radio" name="grupo_freq8" value="ときどき" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr8"> ときどき</label>
+<label><input type="radio" name="grupo_freq8" value="あまり" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr8"> あまり</label>
+<label><input type="radio" name="grupo_freq8" value="ぜんぜん" data-resposta="ぜんぜん" data-grupo="grupo_freq" data-id="fr8"> ぜんぜん</label>
+<div id="r_fr8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Frequentemente como arroz.</strong><br>______ごはんをたべます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq9" value="よく" data-resposta="よく" data-grupo="grupo_freq" data-id="fr9"> よく</label>
+<label><input type="radio" name="grupo_freq9" value="ときどき" data-resposta="よく" data-grupo="grupo_freq" data-id="fr9"> ときどき</label>
+<label><input type="radio" name="grupo_freq9" value="あまり" data-resposta="よく" data-grupo="grupo_freq" data-id="fr9"> あまり</label>
+<label><input type="radio" name="grupo_freq9" value="ぜんぜん" data-resposta="よく" data-grupo="grupo_freq" data-id="fr9"> ぜんぜん</label>
+<div id="r_fr9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Às vezes durmo às 11h.</strong><br>______１１じにねます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_freq10" value="よく" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr10"> よく</label>
+<label><input type="radio" name="grupo_freq10" value="ときどき" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr10"> ときどき</label>
+<label><input type="radio" name="grupo_freq10" value="あまり" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr10"> あまり</label>
+<label><input type="radio" name="grupo_freq10" value="ぜんぜん" data-resposta="ときどき" data-grupo="grupo_freq" data-id="fr10"> ぜんぜん</label>
+<div id="r_fr10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_freq', 'fr')">Corrigir Frequência</button><h2>🔗 Complete com a partícula correta</h2><p>Escolha entre に、を ou へ conforme a função da partícula na frase.</p><div class="card">
+<strong>1. Como pão.</strong><br>パン______たべます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part1" value="に" data-resposta="を" data-grupo="grupo_part" data-id="pt1"> に</label>
+<label><input type="radio" name="grupo_part1" value="を" data-resposta="を" data-grupo="grupo_part" data-id="pt1"> を</label>
+<label><input type="radio" name="grupo_part1" value="へ" data-resposta="を" data-grupo="grupo_part" data-id="pt1"> へ</label>
+<div id="r_pt1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Vou à escola.</strong><br>がっこう______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part2" value="に" data-resposta="へ" data-grupo="grupo_part" data-id="pt2"> に</label>
+<label><input type="radio" name="grupo_part2" value="を" data-resposta="へ" data-grupo="grupo_part" data-id="pt2"> を</label>
+<label><input type="radio" name="grupo_part2" value="へ" data-resposta="へ" data-grupo="grupo_part" data-id="pt2"> へ</label>
+<div id="r_pt2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Estudo japonês.</strong><br>にほんご______べんきょうします。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part3" value="に" data-resposta="を" data-grupo="grupo_part" data-id="pt3"> に</label>
+<label><input type="radio" name="grupo_part3" value="を" data-resposta="を" data-grupo="grupo_part" data-id="pt3"> を</label>
+<label><input type="radio" name="grupo_part3" value="へ" data-resposta="を" data-grupo="grupo_part" data-id="pt3"> へ</label>
+<div id="r_pt3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Volto para casa.</strong><br>うち______かえります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part4" value="に" data-resposta="に" data-grupo="grupo_part" data-id="pt4"> に</label>
+<label><input type="radio" name="grupo_part4" value="を" data-resposta="に" data-grupo="grupo_part" data-id="pt4"> を</label>
+<label><input type="radio" name="grupo_part4" value="へ" data-resposta="に" data-grupo="grupo_part" data-id="pt4"> へ</label>
+<div id="r_pt4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Assisto TV.</strong><br>テレビ______みます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part5" value="に" data-resposta="を" data-grupo="grupo_part" data-id="pt5"> に</label>
+<label><input type="radio" name="grupo_part5" value="を" data-resposta="を" data-grupo="grupo_part" data-id="pt5"> を</label>
+<label><input type="radio" name="grupo_part5" value="へ" data-resposta="を" data-grupo="grupo_part" data-id="pt5"> へ</label>
+<div id="r_pt5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Durmo às 10h.</strong><br>１０じ______ねます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part6" value="に" data-resposta="に" data-grupo="grupo_part" data-id="pt6"> に</label>
+<label><input type="radio" name="grupo_part6" value="を" data-resposta="に" data-grupo="grupo_part" data-id="pt6"> を</label>
+<label><input type="radio" name="grupo_part6" value="へ" data-resposta="に" data-grupo="grupo_part" data-id="pt6"> へ</label>
+<div id="r_pt6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Acordo às 6h.</strong><br>６じ______おきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part7" value="に" data-resposta="に" data-grupo="grupo_part" data-id="pt7"> に</label>
+<label><input type="radio" name="grupo_part7" value="を" data-resposta="に" data-grupo="grupo_part" data-id="pt7"> を</label>
+<label><input type="radio" name="grupo_part7" value="へ" data-resposta="に" data-grupo="grupo_part" data-id="pt7"> へ</label>
+<div id="r_pt7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Bebo água.</strong><br>みず______のみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part8" value="に" data-resposta="を" data-grupo="grupo_part" data-id="pt8"> に</label>
+<label><input type="radio" name="grupo_part8" value="を" data-resposta="を" data-grupo="grupo_part" data-id="pt8"> を</label>
+<label><input type="radio" name="grupo_part8" value="へ" data-resposta="を" data-grupo="grupo_part" data-id="pt8"> へ</label>
+<div id="r_pt8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Leio livros.</strong><br>ほん______よみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part9" value="に" data-resposta="を" data-grupo="grupo_part" data-id="pt9"> に</label>
+<label><input type="radio" name="grupo_part9" value="を" data-resposta="を" data-grupo="grupo_part" data-id="pt9"> を</label>
+<label><input type="radio" name="grupo_part9" value="へ" data-resposta="を" data-grupo="grupo_part" data-id="pt9"> へ</label>
+<div id="r_pt9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Vou para a estação.</strong><br>えき______いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_part10" value="に" data-resposta="へ" data-grupo="grupo_part" data-id="pt10"> に</label>
+<label><input type="radio" name="grupo_part10" value="を" data-resposta="へ" data-grupo="grupo_part" data-id="pt10"> を</label>
+<label><input type="radio" name="grupo_part10" value="へ" data-resposta="へ" data-grupo="grupo_part" data-id="pt10"> へ</label>
+<div id="r_pt10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_part', 'pt')">Corrigir Partículas</button></body></html>

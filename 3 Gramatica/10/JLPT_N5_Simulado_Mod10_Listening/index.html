@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Simulado JLPT N5 – Listening</title>
+<style>
+body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+.card { background: #f4f4f4; padding: 15px; margin: 10px 0; border-radius: 8px; }
+.alt-group { margin-top: 10px; }
+button { margin-top: 10px; padding: 10px 15px; font-size: 1rem; }
+.answer { margin-top: 5px; font-weight: bold; }
+#start-btn, #reset-btn { margin: 15px 5px 30px 0; }
+</style>
+<script>
+let intervalo;
+let tempo = 1020;
+function iniciarTimer() {
+  document.getElementById('start-btn').disabled = true;
+  document.getElementById('reset-btn').disabled = false;
+  const timer = document.getElementById('timer');
+  intervalo = setInterval(() => {
+    const min = Math.floor(tempo / 60);
+    const seg = tempo % 60;
+    timer.innerText = `⏱️ Tempo restante: ${min}m ${seg}s`;
+    tempo--;
+    if (tempo < 0) {
+      clearInterval(intervalo);
+      timer.innerText = "⏱️ Tempo esgotado.";
+    }
+  }, 1000);
+}
+function corrigir() {
+  let corretas = 0;
+  const total = 17;
+  for (let i = 1; i <= total; i++) {
+    const radios = document.getElementsByName('q'+i);
+    let respondeu = false;
+    for (let r of radios) {
+      if (r.checked) {
+        respondeu = true;
+        if (r.value === r.dataset.resposta) {
+          document.getElementById('r'+i).innerText = "✅ Correto!";
+          corretas++;
+        } else {
+          document.getElementById('r'+i).innerText = "❌ Errado. Resposta correta: " + r.dataset.resposta;
+        }
+      }
+    }
+    if (!respondeu) {
+      document.getElementById('r'+i).innerText = "⚠️ Você não respondeu.";
+    }
+  }
+  document.getElementById('resultado').innerText = `Você acertou ${corretas} de ${total} questões.`;
+}
+function resetarSimulado() {
+  clearInterval(intervalo);
+  tempo = 1020;
+  document.getElementById('timer').innerText = "";
+  document.getElementById('start-btn').disabled = false;
+  document.getElementById('reset-btn').disabled = true;
+  document.getElementById('resultado').innerText = "";
+  for (let i = 1; i <= 17; i++) {
+    const radios = document.getElementsByName('q'+i);
+    for (let r of radios) r.checked = false;
+    document.getElementById('r'+i).innerText = "";
+  }
+}
+</script>
+</head>
+<body>
+<h1>Simulado JLPT N5 – Seção 3: Listening</h1>
+<div id="timer"></div>
+<button id="start-btn" onclick="iniciarTimer()">▶️ Iniciar Prova</button>
+<button id="reset-btn" onclick="resetarSimulado()" disabled>🔄 Refazer Simulado</button>
+<div class="card"><strong>1. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_01.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q1" value="Está chovendo" data-resposta="Está quente"> Está chovendo</label><br><label><input type="radio" name="q1" value="Está frio" data-resposta="Está quente"> Está frio</label><br><label><input type="radio" name="q1" value="Está quente" data-resposta="Está quente"> Está quente</label><br><label><input type="radio" name="q1" value="Está nublado" data-resposta="Está quente"> Está nublado</label><br><div id="r1" class="answer"></div></div></div><div class="card"><strong>2. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_02.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q2" value="Vai ao trabalho" data-resposta="Vai para a escola"> Vai ao trabalho</label><br><label><input type="radio" name="q2" value="Vai para a escola" data-resposta="Vai para a escola"> Vai para a escola</label><br><label><input type="radio" name="q2" value="Estuda em casa" data-resposta="Vai para a escola"> Estuda em casa</label><br><label><input type="radio" name="q2" value="Vai ao mercado" data-resposta="Vai para a escola"> Vai ao mercado</label><br><div id="r2" class="answer"></div></div></div><div class="card"><strong>3. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_03.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q3" value="No quarto" data-resposta="No jardim"> No quarto</label><br><label><input type="radio" name="q3" value="No jardim" data-resposta="No jardim"> No jardim</label><br><label><input type="radio" name="q3" value="Na escola" data-resposta="No jardim"> Na escola</label><br><label><input type="radio" name="q3" value="Na sala" data-resposta="No jardim"> Na sala</label><br><div id="r3" class="answer"></div></div></div><div class="card"><strong>4. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_04.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q4" value="Ir ao hospital" data-resposta="Ver filme com amigo"> Ir ao hospital</label><br><label><input type="radio" name="q4" value="Ver filme com amigo" data-resposta="Ver filme com amigo"> Ver filme com amigo</label><br><label><input type="radio" name="q4" value="Comprar livro" data-resposta="Ver filme com amigo"> Comprar livro</label><br><label><input type="radio" name="q4" value="Estudar japonês" data-resposta="Ver filme com amigo"> Estudar japonês</label><br><div id="r4" class="answer"></div></div></div><div class="card"><strong>5. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_05.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q5" value="Novo" data-resposta="Caro"> Novo</label><br><label><input type="radio" name="q5" value="Grande" data-resposta="Caro"> Grande</label><br><label><input type="radio" name="q5" value="Barato" data-resposta="Caro"> Barato</label><br><label><input type="radio" name="q5" value="Caro" data-resposta="Caro"> Caro</label><br><div id="r5" class="answer"></div></div></div><div class="card"><strong>6. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_06.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q6" value="Bicicleta do professor" data-resposta="Bicicleta do professor"> Bicicleta do professor</label><br><label><input type="radio" name="q6" value="Carro do aluno" data-resposta="Bicicleta do professor"> Carro do aluno</label><br><label><input type="radio" name="q6" value="Trem da escola" data-resposta="Bicicleta do professor"> Trem da escola</label><br><label><input type="radio" name="q6" value="Mala da professora" data-resposta="Bicicleta do professor"> Mala da professora</label><br><div id="r6" class="answer"></div></div></div><div class="card"><strong>7. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_07.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q7" value="A pé" data-resposta="Trem"> A pé</label><br><label><input type="radio" name="q7" value="Ônibus" data-resposta="Trem"> Ônibus</label><br><label><input type="radio" name="q7" value="Trem" data-resposta="Trem"> Trem</label><br><label><input type="radio" name="q7" value="Bicicleta" data-resposta="Trem"> Bicicleta</label><br><div id="r7" class="answer"></div></div></div><div class="card"><strong>8. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_08.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q8" value="Espaçoso" data-resposta="Apertado"> Espaçoso</label><br><label><input type="radio" name="q8" value="Escuro" data-resposta="Apertado"> Escuro</label><br><label><input type="radio" name="q8" value="Apertado" data-resposta="Apertado"> Apertado</label><br><label><input type="radio" name="q8" value="Limpo" data-resposta="Apertado"> Limpo</label><br><div id="r8" class="answer"></div></div></div><div class="card"><strong>9. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_09.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q9" value="Às 6h" data-resposta="Às 6h"> Às 6h</label><br><label><input type="radio" name="q9" value="Às 7h" data-resposta="Às 6h"> Às 7h</label><br><label><input type="radio" name="q9" value="Às 8h" data-resposta="Às 6h"> Às 8h</label><br><label><input type="radio" name="q9" value="Ao meio-dia" data-resposta="Às 6h"> Ao meio-dia</label><br><div id="r9" class="answer"></div></div></div><div class="card"><strong>10. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_10.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q10" value="Inglês" data-resposta="Japonês"> Inglês</label><br><label><input type="radio" name="q10" value="Japonês" data-resposta="Japonês"> Japonês</label><br><label><input type="radio" name="q10" value="Matemática" data-resposta="Japonês"> Matemática</label><br><label><input type="radio" name="q10" value="História" data-resposta="Japonês"> História</label><br><div id="r10" class="answer"></div></div></div><div class="card"><strong>11. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_11.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q11" value="Escola" data-resposta="Hospital"> Escola</label><br><label><input type="radio" name="q11" value="Hospital" data-resposta="Hospital"> Hospital</label><br><label><input type="radio" name="q11" value="Supermercado" data-resposta="Hospital"> Supermercado</label><br><label><input type="radio" name="q11" value="Parque" data-resposta="Hospital"> Parque</label><br><div id="r11" class="answer"></div></div></div><div class="card"><strong>12. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_12.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q12" value="Ligar a luz" data-resposta="Desligar a luz"> Ligar a luz</label><br><label><input type="radio" name="q12" value="Fechar a janela" data-resposta="Desligar a luz"> Fechar a janela</label><br><label><input type="radio" name="q12" value="Desligar a luz" data-resposta="Desligar a luz"> Desligar a luz</label><br><label><input type="radio" name="q12" value="Ligar ar-condicionado" data-resposta="Desligar a luz"> Ligar ar-condicionado</label><br><div id="r12" class="answer"></div></div></div><div class="card"><strong>13. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_13.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q13" value="Alto" data-resposta="Pequeno"> Alto</label><br><label><input type="radio" name="q13" value="Pequeno" data-resposta="Pequeno"> Pequeno</label><br><label><input type="radio" name="q13" value="Forte" data-resposta="Pequeno"> Forte</label><br><label><input type="radio" name="q13" value="Velho" data-resposta="Pequeno"> Velho</label><br><div id="r13" class="answer"></div></div></div><div class="card"><strong>14. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_14.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q14" value="Silencioso" data-resposta="Animado"> Silencioso</label><br><label><input type="radio" name="q14" value="Animado" data-resposta="Animado"> Animado</label><br><label><input type="radio" name="q14" value="Pequeno" data-resposta="Animado"> Pequeno</label><br><label><input type="radio" name="q14" value="Novo" data-resposta="Animado"> Novo</label><br><div id="r14" class="answer"></div></div></div><div class="card"><strong>15. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_15.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q15" value="Parque" data-resposta="Escola"> Parque</label><br><label><input type="radio" name="q15" value="Casa" data-resposta="Escola"> Casa</label><br><label><input type="radio" name="q15" value="Escola" data-resposta="Escola"> Escola</label><br><label><input type="radio" name="q15" value="Restaurante" data-resposta="Escola"> Restaurante</label><br><div id="r15" class="answer"></div></div></div><div class="card"><strong>16. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_16.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q16" value="Leite e pão" data-resposta="Leite e pão"> Leite e pão</label><br><label><input type="radio" name="q16" value="Chá e frutas" data-resposta="Leite e pão"> Chá e frutas</label><br><label><input type="radio" name="q16" value="Pão e manteiga" data-resposta="Leite e pão"> Pão e manteiga</label><br><label><input type="radio" name="q16" value="Leite e carne" data-resposta="Leite e pão"> Leite e carne</label><br><div id="r16" class="answer"></div></div></div><div class="card"><strong>17. Ouça o áudio e escolha a resposta correta:</strong><br><audio controls><source src="audio/audio_17.mp3" type="audio/mpeg">Seu navegador não suporta áudio.</audio><br><div class="alt-group"><label><input type="radio" name="q17" value="Azul" data-resposta="Branca"> Azul</label><br><label><input type="radio" name="q17" value="Preta" data-resposta="Branca"> Preta</label><br><label><input type="radio" name="q17" value="Branca" data-resposta="Branca"> Branca</label><br><label><input type="radio" name="q17" value="Vermelha" data-resposta="Branca"> Vermelha</label><br><div id="r17" class="answer"></div></div></div><button onclick="corrigir()">Corrigir esta seção</button><div id="resultado" style="margin-top:20px; font-size:1.2rem;"></div></body></html>

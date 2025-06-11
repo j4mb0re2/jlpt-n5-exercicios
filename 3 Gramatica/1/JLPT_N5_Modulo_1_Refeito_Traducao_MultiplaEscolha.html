@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JLPT N5 - Módulo 1 - Tradução + Múltipla Escolha</title>
+    <style>
+        body { font-family: sans-serif; max-width: 900px; margin: auto; padding: 20px; }
+        h1, h2 { color: #2c3e50; }
+        .bloco { margin-bottom: 30px; padding: 15px; background-color: #f4f4f4; border-radius: 8px; }
+        .question { margin-bottom: 25px; padding: 15px; background-color: #eef; border-radius: 8px; }
+        .resposta { font-weight: bold; margin-top: 10px; }
+        input[type="text"] { padding: 5px; width: 400px; margin-bottom: 5px; }
+        button { padding: 5px 10px; margin-top: 10px; }
+    </style>
+    <script>
+        function corrigirTudo() {
+            const respostas = {
+                q1: "Nós somos estudantes.",
+                q2: "Ela é americana.",
+                q3: "Vocês são estudantes.",
+                q4: "Ele é chinês.",
+                q5: "Nós somos estudantes.",
+                q6: "Você é professora."
+            };
+
+            for (const [id, correta] of Object.entries(respostas)) {
+                const selecionado = document.querySelector('input[name="' + id + '"]:checked');
+                const resposta = document.getElementById("resposta_" + id);
+                if (!selecionado) {
+                    resposta.innerHTML = "❗ Por favor, selecione uma alternativa.";
+                    resposta.style.color = "orange";
+                    continue;
+                }
+                if (selecionado.value === correta) {
+                    resposta.innerHTML = "✅ Correto!";
+                    resposta.style.color = "green";
+                } else {
+                    resposta.innerHTML = "❌ Incorreto. A resposta certa é: " + correta;
+                    resposta.style.color = "red";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>JLPT N5 - Módulo 1: Tradução + Múltipla Escolha</h1>
+
+    <div class="bloco">
+        <h2>Parte 1: Traduza para o japonês</h2>
+
+        <p>1. Nós somos estudantes.<br>
+        <input type="text" id="entrada_q1">
+        <button onclick="corrigirTexto('entrada_q1', 'わたしたちはがくせいです。', 'resposta_texto_q1')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q1"></span></p>
+
+        <p>2. Ela é chinesa.<br>
+        <input type="text" id="entrada_q2">
+        <button onclick="corrigirTexto('entrada_q2', 'かのじょはがくせいです。', 'resposta_texto_q2')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q2"></span></p>
+
+        <p>3. Você é americano.<br>
+        <input type="text" id="entrada_q3">
+        <button onclick="corrigirTexto('entrada_q3', 'あなたはアメリカじんです。', 'resposta_texto_q3')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q3"></span></p>
+
+        <p>4. Ele é professor.<br>
+        <input type="text" id="entrada_q4">
+        <button onclick="corrigirTexto('entrada_q4', 'かれはちゅうごくじんです。', 'resposta_texto_q4')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q4"></span></p>
+
+        <p>5. Nós somos estudantes.<br>
+        <input type="text" id="entrada_q5">
+        <button onclick="corrigirTexto('entrada_q5', 'わたしたちはがくせいです。', 'resposta_texto_q5')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q5"></span></p>
+
+        <p>6. Vocês são estudantes.<br>
+        <input type="text" id="entrada_q6">
+        <button onclick="corrigirTexto('entrada_q6', 'あなたはせんせいです。', 'resposta_texto_q6')">Corrigir</button>
+        <span class="resposta" id="resposta_texto_q6"></span></p>
+    </div>
+
+    <div class="bloco">
+        <h2>Parte 2: Marque a alternativa correta</h2>
+        <p><strong>Instruções:</strong> Leia cada frase em japonês e selecione a tradução correta.</p>
+
+        <div class="question">
+            <p>1. わたしたちはがくせいです。</p>
+            <label><input type="radio" name="q1" value="Nós somos estudantes."> Nós somos estudantes.</label><br>
+            <label><input type="radio" name="q1" value="Vocês são estudantes."> Vocês são estudantes.</label><br>
+            <label><input type="radio" name="q1" value="Eles são estudantes."> Eles são estudantes.</label><br>
+            <label><input type="radio" name="q1" value="Elas são estudantes."> Elas são estudantes.</label><br>
+            <label><input type="radio" name="q1" value="Nós somos professores."> Nós somos professores.</label><br>
+            <div class="resposta" id="resposta_q1"></div>
+        </div>
+
+        <div class="question">
+            <p>2. かのじょはがくせいです。</p>
+            <label><input type="radio" name="q2" value="Ela é professora."> Ela é professora.</label><br>
+            <label><input type="radio" name="q2" value="Você é estudante."> Você é estudante.</label><br>
+            <label><input type="radio" name="q2" value="Ela é americana."> Ela é americana.</label><br>
+            <label><input type="radio" name="q2" value="Ela é chinesa."> Ela é chinesa.</label><br>
+            <label><input type="radio" name="q2" value="Ela é americana."> Ela é americana.</label><br>
+            <div class="resposta" id="resposta_q2"></div>
+        </div>
+
+        <div class="question">
+            <p>3. あなたはアメリカじんです。</p>
+            <label><input type="radio" name="q3" value="Vocês são estudantes."> Vocês são estudantes.</label><br>
+            <label><input type="radio" name="q3" value="Eu sou estudante."> Eu sou estudante.</label><br>
+            <label><input type="radio" name="q3" value="Ele é americano."> Ele é americano.</label><br>
+            <label><input type="radio" name="q3" value="Ela é americana."> Ela é americana.</label><br>
+            <label><input type="radio" name="q3" value="Você é professora."> Você é professora.</label><br>
+            <div class="resposta" id="resposta_q3"></div>
+        </div>
+
+        <div class="question">
+            <p>4. かれはちゅうごくじんです。</p>
+            <label><input type="radio" name="q4" value="Ele é chinês."> Ele é chinês.</label><br>
+            <label><input type="radio" name="q4" value="Ela é chinesa."> Ela é chinesa.</label><br>
+            <label><input type="radio" name="q4" value="Você é estudante."> Você é estudante.</label><br>
+            <label><input type="radio" name="q4" value="Ele é japonês."> Ele é japonês.</label><br>
+            <label><input type="radio" name="q4" value="Ele é americano."> Ele é americano.</label><br>
+            <div class="resposta" id="resposta_q4"></div>
+        </div>
+
+        <div class="question">
+            <p>5. わたしはにほんじんです。</p>
+            <label><input type="radio" name="q5" value="Eu sou americano."> Eu sou americano.</label><br>
+            <label><input type="radio" name="q5" value="Nós somos estudantes."> Nós somos estudantes.</label><br>
+            <label><input type="radio" name="q5" value="Eu sou professora."> Eu sou professora.</label><br>
+            <label><input type="radio" name="q5" value="Você é japonês."> Você é japonês.</label><br>
+            <label><input type="radio" name="q5" value="Eu sou estudante."> Eu sou estudante.</label><br>
+            <div class="resposta" id="resposta_q5"></div>
+        </div>
+
+        <div class="question">
+            <p>6. あなたはせんせいです。</p>
+            <label><input type="radio" name="q6" value="Você é professora."> Você é professora.</label><br>
+            <label><input type="radio" name="q6" value="Eu sou professora."> Eu sou professora.</label><br>
+            <label><input type="radio" name="q6" value="Ele é professor."> Ele é professor.</label><br>
+            <label><input type="radio" name="q6" value="Você é estudante."> Você é estudante.</label><br>
+            <label><input type="radio" name="q6" value="Vocês são estudantes."> Vocês são estudantes.</label><br>
+            <div class="resposta" id="resposta_q6"></div>
+        </div>
+
+        <button onclick="corrigirTudo()">Corrigir todas</button>
+    </div>
+
+    <script>
+        function corrigirTexto(inputId, respostaCerta, idResposta) {
+            const entrada = document.getElementById(inputId).value.trim();
+            const resultado = document.getElementById(idResposta);
+            if (entrada === respostaCerta) {
+                resultado.innerHTML = "✅ Correto!";
+                resultado.style.color = "green";
+            } else {
+                resultado.innerHTML = "❌ Incorreto. Resposta certa: " + respostaCerta;
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

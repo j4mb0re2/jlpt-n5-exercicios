@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JLPT N5 - Módulo 3 - Exercícios Expandidos</title>
+<style>
+body { font-family: sans-serif; max-width: 800px; margin: 30px auto; line-height: 1.8; }
+h2 { color: #2a4d69; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 6px 12px; }
+.answer { display: none; color: green; margin-top: 10px; }
+.alt-group { margin-top: 10px; }
+.alt-group label { display: block; margin: 4px 0; }
+.correct { color: green; }
+.incorrect { color: red; }
+</style>
+<script>
+function corrigirQuestoes(grupo) {
+  const inputs = document.querySelectorAll(`[data-group="${grupo}"]`);
+  inputs.forEach(input => {
+    const correta = input.dataset.resposta;
+    const resultId = "r_" + input.id;
+    const result = document.getElementById(resultId);
+    if (input.value.trim() === correta) {
+      result.textContent = "✔ Correto!";
+      result.className = "answer correct";
+    } else {
+      result.textContent = "✘ Errado. Correto: " + correta;
+      result.className = "answer incorrect";
+    }
+    result.style.display = "block";
+  });
+}
+function corrigirGrupo(grupo, prefixo) {
+  const inputs = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`);
+  inputs.forEach(el => {
+    const correta = el.dataset.resposta;
+    const id = el.dataset.id;
+    const target = document.getElementById("r_" + id);
+    if (el.value === correta) {
+      target.textContent = "✔ Correto!";
+      target.className = "answer correct";
+    } else {
+      target.textContent = "✘ Errado. Correto: " + correta;
+      target.className = "answer incorrect";
+    }
+    target.style.display = "block";
+  });
+}
+</script>
+</head>
+<body>
+<h1>JLPT N5 - Módulo 3 - Exercícios Expandidos</h1>
+<h2>📝 Traduza para o japonês</h2><p>Escreva a frase em japonês usando o vocabulário aprendido. Clique no botão para ver se está certo.</p>
+<div class="card">
+<strong>1. O livro está sobre a mesa.</strong>
+<input type="text" id="trad1" data-group="trad" data-resposta="つくえのうえにほんがあります。">
+<div id="r_trad1" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>2. Tem uma janela no quarto.</strong>
+<input type="text" id="trad2" data-group="trad" data-resposta="へやにまどがあります。">
+<div id="r_trad2" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>3. O professor está na escola.</strong>
+<input type="text" id="trad3" data-group="trad" data-resposta="せんせいはがっこうにいます。">
+<div id="r_trad3" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>4. A televisão está em casa.</strong>
+<input type="text" id="trad4" data-group="trad" data-resposta="うちにテレビがあります。">
+<div id="r_trad4" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>5. Meu amigo está no parque.</strong>
+<input type="text" id="trad5" data-group="trad" data-resposta="ともだちはこうえんにいます。">
+<div id="r_trad5" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>6. Tem um telefone na sala.</strong>
+<input type="text" id="trad6" data-group="trad" data-resposta="へやにでんわがあります。">
+<div id="r_trad6" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>7. Há uma cadeira na biblioteca.</strong>
+<input type="text" id="trad7" data-group="trad" data-resposta="としょかんにいすがあります。">
+<div id="r_trad7" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>8. O cachorro está no parque.</strong>
+<input type="text" id="trad8" data-group="trad" data-resposta="こうえんにいぬがいます。">
+<div id="r_trad8" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>9. Tem uma bolsa no banco.</strong>
+<input type="text" id="trad9" data-group="trad" data-resposta="ぎんこうにかばんがあります。">
+<div id="r_trad9" class="answer"></div>
+</div>
+
+<div class="card">
+<strong>10. A escola está ali.</strong>
+<input type="text" id="trad10" data-group="trad" data-resposta="がっこうはあそこです。">
+<div id="r_trad10" class="answer"></div>
+</div>
+<button onclick="corrigirQuestoes('trad')">Corrigir Traduções</button><h2>✅ Marque a alternativa correta</h2><p>Escolha a tradução correta da frase em japonês.</p><div class="card">
+<strong>1. A estação é lá.</strong><br>あそこは____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla1" value="えき" data-resposta="えき" data-grupo="grupo_multipla" data-id="m1"> えき</label>
+<label><input type="radio" name="grupo_multipla1" value="まど" data-resposta="えき" data-grupo="grupo_multipla" data-id="m1"> まど</label>
+<label><input type="radio" name="grupo_multipla1" value="ドア" data-resposta="えき" data-grupo="grupo_multipla" data-id="m1"> ドア</label>
+<label><input type="radio" name="grupo_multipla1" value="いす" data-resposta="えき" data-grupo="grupo_multipla" data-id="m1"> いす</label>
+<label><input type="radio" name="grupo_multipla1" value="ほん" data-resposta="えき" data-grupo="grupo_multipla" data-id="m1"> ほん</label>
+<div id="r_m1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. O parque é aqui.</strong><br>ここは____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla2" value="こうえん" data-resposta="こうえん" data-grupo="grupo_multipla" data-id="m2"> こうえん</label>
+<label><input type="radio" name="grupo_multipla2" value="つくえ" data-resposta="こうえん" data-grupo="grupo_multipla" data-id="m2"> つくえ</label>
+<label><input type="radio" name="grupo_multipla2" value="でんわ" data-resposta="こうえん" data-grupo="grupo_multipla" data-id="m2"> でんわ</label>
+<label><input type="radio" name="grupo_multipla2" value="パソコン" data-resposta="こうえん" data-grupo="grupo_multipla" data-id="m2"> パソコン</label>
+<label><input type="radio" name="grupo_multipla2" value="いえ" data-resposta="こうえん" data-grupo="grupo_multipla" data-id="m2"> いえ</label>
+<div id="r_m2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. A biblioteca é aí.</strong><br>そこは____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla3" value="としょかん" data-resposta="としょかん" data-grupo="grupo_multipla" data-id="m3"> としょかん</label>
+<label><input type="radio" name="grupo_multipla3" value="ぎんこう" data-resposta="としょかん" data-grupo="grupo_multipla" data-id="m3"> ぎんこう</label>
+<label><input type="radio" name="grupo_multipla3" value="カフェ" data-resposta="としょかん" data-grupo="grupo_multipla" data-id="m3"> カフェ</label>
+<label><input type="radio" name="grupo_multipla3" value="ほん" data-resposta="としょかん" data-grupo="grupo_multipla" data-id="m3"> ほん</label>
+<label><input type="radio" name="grupo_multipla3" value="まど" data-resposta="としょかん" data-grupo="grupo_multipla" data-id="m3"> まど</label>
+<div id="r_m3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Tem um relógio no quarto.</strong><br>へやに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla4" value="とけい" data-resposta="とけい" data-grupo="grupo_multipla" data-id="m4"> とけい</label>
+<label><input type="radio" name="grupo_multipla4" value="つくえ" data-resposta="とけい" data-grupo="grupo_multipla" data-id="m4"> つくえ</label>
+<label><input type="radio" name="grupo_multipla4" value="カフェ" data-resposta="とけい" data-grupo="grupo_multipla" data-id="m4"> カフェ</label>
+<label><input type="radio" name="grupo_multipla4" value="ほん" data-resposta="とけい" data-grupo="grupo_multipla" data-id="m4"> ほん</label>
+<label><input type="radio" name="grupo_multipla4" value="いえ" data-resposta="とけい" data-grupo="grupo_multipla" data-id="m4"> いえ</label>
+<div id="r_m4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Tem uma televisão em casa.</strong><br>うちに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla5" value="テレビ" data-resposta="テレビ" data-grupo="grupo_multipla" data-id="m5"> テレビ</label>
+<label><input type="radio" name="grupo_multipla5" value="ドア" data-resposta="テレビ" data-grupo="grupo_multipla" data-id="m5"> ドア</label>
+<label><input type="radio" name="grupo_multipla5" value="かばん" data-resposta="テレビ" data-grupo="grupo_multipla" data-id="m5"> かばん</label>
+<label><input type="radio" name="grupo_multipla5" value="こうえん" data-resposta="テレビ" data-grupo="grupo_multipla" data-id="m5"> こうえん</label>
+<label><input type="radio" name="grupo_multipla5" value="いす" data-resposta="テレビ" data-grupo="grupo_multipla" data-id="m5"> いす</label>
+<div id="r_m5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Tem uma mochila na mesa.</strong><br>つくえのうえに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla6" value="かばん" data-resposta="かばん" data-grupo="grupo_multipla" data-id="m6"> かばん</label>
+<label><input type="radio" name="grupo_multipla6" value="まど" data-resposta="かばん" data-grupo="grupo_multipla" data-id="m6"> まど</label>
+<label><input type="radio" name="grupo_multipla6" value="いす" data-resposta="かばん" data-grupo="grupo_multipla" data-id="m6"> いす</label>
+<label><input type="radio" name="grupo_multipla6" value="ほん" data-resposta="かばん" data-grupo="grupo_multipla" data-id="m6"> ほん</label>
+<label><input type="radio" name="grupo_multipla6" value="パソコン" data-resposta="かばん" data-grupo="grupo_multipla" data-id="m6"> パソコン</label>
+<div id="r_m6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Há uma porta na escola.</strong><br>がっこうに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla7" value="ドア" data-resposta="ドア" data-grupo="grupo_multipla" data-id="m7"> ドア</label>
+<label><input type="radio" name="grupo_multipla7" value="でんわ" data-resposta="ドア" data-grupo="grupo_multipla" data-id="m7"> でんわ</label>
+<label><input type="radio" name="grupo_multipla7" value="ほん" data-resposta="ドア" data-grupo="grupo_multipla" data-id="m7"> ほん</label>
+<label><input type="radio" name="grupo_multipla7" value="えき" data-resposta="ドア" data-grupo="grupo_multipla" data-id="m7"> えき</label>
+<label><input type="radio" name="grupo_multipla7" value="こうえん" data-resposta="ドア" data-grupo="grupo_multipla" data-id="m7"> こうえん</label>
+<div id="r_m7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Tem um computador na biblioteca.</strong><br>としょかんに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla8" value="パソコン" data-resposta="パソコン" data-grupo="grupo_multipla" data-id="m8"> パソコン</label>
+<label><input type="radio" name="grupo_multipla8" value="ぎんこう" data-resposta="パソコン" data-grupo="grupo_multipla" data-id="m8"> ぎんこう</label>
+<label><input type="radio" name="grupo_multipla8" value="まど" data-resposta="パソコン" data-grupo="grupo_multipla" data-id="m8"> まど</label>
+<label><input type="radio" name="grupo_multipla8" value="ほん" data-resposta="パソコン" data-grupo="grupo_multipla" data-id="m8"> ほん</label>
+<label><input type="radio" name="grupo_multipla8" value="えき" data-resposta="パソコン" data-grupo="grupo_multipla" data-id="m8"> えき</label>
+<div id="r_m8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Tem um livro em cima da cadeira.</strong><br>いすのうえに____があります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla9" value="ほん" data-resposta="ほん" data-grupo="grupo_multipla" data-id="m9"> ほん</label>
+<label><input type="radio" name="grupo_multipla9" value="パソコン" data-resposta="ほん" data-grupo="grupo_multipla" data-id="m9"> パソコン</label>
+<label><input type="radio" name="grupo_multipla9" value="テレビ" data-resposta="ほん" data-grupo="grupo_multipla" data-id="m9"> テレビ</label>
+<label><input type="radio" name="grupo_multipla9" value="ドア" data-resposta="ほん" data-grupo="grupo_multipla" data-id="m9"> ドア</label>
+<label><input type="radio" name="grupo_multipla9" value="でんわ" data-resposta="ほん" data-grupo="grupo_multipla" data-id="m9"> でんわ</label>
+<div id="r_m9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. Tem uma pessoa no café.</strong><br>カフェに____がいます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_multipla10" value="ひと" data-resposta="ひと" data-grupo="grupo_multipla" data-id="m10"> ひと</label>
+<label><input type="radio" name="grupo_multipla10" value="いぬ" data-resposta="ひと" data-grupo="grupo_multipla" data-id="m10"> いぬ</label>
+<label><input type="radio" name="grupo_multipla10" value="ほん" data-resposta="ひと" data-grupo="grupo_multipla" data-id="m10"> ほん</label>
+<label><input type="radio" name="grupo_multipla10" value="でんわ" data-resposta="ひと" data-grupo="grupo_multipla" data-id="m10"> でんわ</label>
+<label><input type="radio" name="grupo_multipla10" value="いえ" data-resposta="ひと" data-grupo="grupo_multipla" data-id="m10"> いえ</label>
+<div id="r_m10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_multipla', 'm')">Corrigir Múltipla Escolha</button><h2>👤 Complete com o pronome de local correto</h2><p>Escolha o pronome que melhor completa a frase (ここ・そこ・あそこ・どこ).</p><div class="card">
+<strong>1. A escola é aqui.</strong><br>_____はがっこうです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes1" value="ここ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr1"> ここ</label>
+<label><input type="radio" name="grupo_pronomes1" value="そこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr1"> そこ</label>
+<label><input type="radio" name="grupo_pronomes1" value="あそこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr1"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes1" value="どこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr1"> どこ</label>
+<div id="r_pr1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. O café é lá.</strong><br>カフェは_____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes2" value="ここ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr2"> ここ</label>
+<label><input type="radio" name="grupo_pronomes2" value="そこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr2"> そこ</label>
+<label><input type="radio" name="grupo_pronomes2" value="あそこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr2"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes2" value="どこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr2"> どこ</label>
+<div id="r_pr2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. A biblioteca é aí.</strong><br>としょかんは_____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes3" value="ここ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr3"> ここ</label>
+<label><input type="radio" name="grupo_pronomes3" value="そこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr3"> そこ</label>
+<label><input type="radio" name="grupo_pronomes3" value="あそこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr3"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes3" value="どこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr3"> どこ</label>
+<div id="r_pr3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. Onde está o banco?</strong><br>ぎんこうは_____ですか？
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes4" value="ここ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr4"> ここ</label>
+<label><input type="radio" name="grupo_pronomes4" value="そこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr4"> そこ</label>
+<label><input type="radio" name="grupo_pronomes4" value="あそこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr4"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes4" value="どこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr4"> どこ</label>
+<div id="r_pr4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. O parque é ali.</strong><br>_____はこうえんです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes5" value="ここ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr5"> ここ</label>
+<label><input type="radio" name="grupo_pronomes5" value="そこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr5"> そこ</label>
+<label><input type="radio" name="grupo_pronomes5" value="あそこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr5"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes5" value="どこ" data-resposta="あそこ" data-grupo="grupo_pronomes" data-id="pr5"> どこ</label>
+<div id="r_pr5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. A estação é aqui.</strong><br>_____はえきです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes6" value="ここ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr6"> ここ</label>
+<label><input type="radio" name="grupo_pronomes6" value="そこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr6"> そこ</label>
+<label><input type="radio" name="grupo_pronomes6" value="あそこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr6"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes6" value="どこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr6"> どこ</label>
+<div id="r_pr6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Onde está a TV?</strong><br>テレビは_____ですか？
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes7" value="ここ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr7"> ここ</label>
+<label><input type="radio" name="grupo_pronomes7" value="そこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr7"> そこ</label>
+<label><input type="radio" name="grupo_pronomes7" value="あそこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr7"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes7" value="どこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr7"> どこ</label>
+<div id="r_pr7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. O quarto é aí.</strong><br>へやは_____です。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes8" value="ここ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr8"> ここ</label>
+<label><input type="radio" name="grupo_pronomes8" value="そこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr8"> そこ</label>
+<label><input type="radio" name="grupo_pronomes8" value="あそこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr8"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes8" value="どこ" data-resposta="そこ" data-grupo="grupo_pronomes" data-id="pr8"> どこ</label>
+<div id="r_pr8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. Onde está o computador?</strong><br>パソコンは_____ですか？
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes9" value="ここ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr9"> ここ</label>
+<label><input type="radio" name="grupo_pronomes9" value="そこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr9"> そこ</label>
+<label><input type="radio" name="grupo_pronomes9" value="あそこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr9"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes9" value="どこ" data-resposta="どこ" data-grupo="grupo_pronomes" data-id="pr9"> どこ</label>
+<div id="r_pr9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. A casa é aqui.</strong><br>_____はいえです。
+<div class="alt-group">
+<label><input type="radio" name="grupo_pronomes10" value="ここ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr10"> ここ</label>
+<label><input type="radio" name="grupo_pronomes10" value="そこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr10"> そこ</label>
+<label><input type="radio" name="grupo_pronomes10" value="あそこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr10"> あそこ</label>
+<label><input type="radio" name="grupo_pronomes10" value="どこ" data-resposta="ここ" data-grupo="grupo_pronomes" data-id="pr10"> どこ</label>
+<div id="r_pr10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_pronomes', 'pr')">Corrigir Pronomes</button><h2>🔗 Complete com a partícula correta</h2><p>Complete a frase com a partícula apropriada (に・で・へ) com base na função do local na frase.</p><div class="card">
+<strong>1. Vou para a escola.</strong><br>がっこう_____ いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas1" value="に" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt1"> に</label>
+<label><input type="radio" name="grupo_particulas1" value="で" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt1"> で</label>
+<label><input type="radio" name="grupo_particulas1" value="へ" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt1"> へ</label>
+<div id="r_pt1" class="answer"></div></div></div>
+<div class="card">
+<strong>2. Estudo na biblioteca.</strong><br>としょかん_____ べんきょうします。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas2" value="に" data-resposta="で" data-grupo="grupo_particulas" data-id="pt2"> に</label>
+<label><input type="radio" name="grupo_particulas2" value="で" data-resposta="で" data-grupo="grupo_particulas" data-id="pt2"> で</label>
+<label><input type="radio" name="grupo_particulas2" value="へ" data-resposta="で" data-grupo="grupo_particulas" data-id="pt2"> へ</label>
+<div id="r_pt2" class="answer"></div></div></div>
+<div class="card">
+<strong>3. Há um telefone em casa.</strong><br>うち_____ でんわがあります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas3" value="に" data-resposta="に" data-grupo="grupo_particulas" data-id="pt3"> に</label>
+<label><input type="radio" name="grupo_particulas3" value="で" data-resposta="に" data-grupo="grupo_particulas" data-id="pt3"> で</label>
+<label><input type="radio" name="grupo_particulas3" value="へ" data-resposta="に" data-grupo="grupo_particulas" data-id="pt3"> へ</label>
+<div id="r_pt3" class="answer"></div></div></div>
+<div class="card">
+<strong>4. O amigo está no parque.</strong><br>こうえん_____ ともだちがいます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas4" value="に" data-resposta="に" data-grupo="grupo_particulas" data-id="pt4"> に</label>
+<label><input type="radio" name="grupo_particulas4" value="で" data-resposta="に" data-grupo="grupo_particulas" data-id="pt4"> で</label>
+<label><input type="radio" name="grupo_particulas4" value="へ" data-resposta="に" data-grupo="grupo_particulas" data-id="pt4"> へ</label>
+<div id="r_pt4" class="answer"></div></div></div>
+<div class="card">
+<strong>5. Compro no supermercado.</strong><br>スーパー_____ かいものします。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas5" value="に" data-resposta="で" data-grupo="grupo_particulas" data-id="pt5"> に</label>
+<label><input type="radio" name="grupo_particulas5" value="で" data-resposta="で" data-grupo="grupo_particulas" data-id="pt5"> で</label>
+<label><input type="radio" name="grupo_particulas5" value="へ" data-resposta="で" data-grupo="grupo_particulas" data-id="pt5"> へ</label>
+<div id="r_pt5" class="answer"></div></div></div>
+<div class="card">
+<strong>6. Tem uma bolsa no banco.</strong><br>ぎんこう_____ かばんがあります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas6" value="に" data-resposta="に" data-grupo="grupo_particulas" data-id="pt6"> に</label>
+<label><input type="radio" name="grupo_particulas6" value="で" data-resposta="に" data-grupo="grupo_particulas" data-id="pt6"> で</label>
+<label><input type="radio" name="grupo_particulas6" value="へ" data-resposta="に" data-grupo="grupo_particulas" data-id="pt6"> へ</label>
+<div id="r_pt6" class="answer"></div></div></div>
+<div class="card">
+<strong>7. Assisto TV no quarto.</strong><br>へや_____ テレビをみます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas7" value="に" data-resposta="で" data-grupo="grupo_particulas" data-id="pt7"> に</label>
+<label><input type="radio" name="grupo_particulas7" value="で" data-resposta="で" data-grupo="grupo_particulas" data-id="pt7"> で</label>
+<label><input type="radio" name="grupo_particulas7" value="へ" data-resposta="で" data-grupo="grupo_particulas" data-id="pt7"> へ</label>
+<div id="r_pt7" class="answer"></div></div></div>
+<div class="card">
+<strong>8. Vou para a estação.</strong><br>えき_____ いきます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas8" value="に" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt8"> に</label>
+<label><input type="radio" name="grupo_particulas8" value="で" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt8"> で</label>
+<label><input type="radio" name="grupo_particulas8" value="へ" data-resposta="へ" data-grupo="grupo_particulas" data-id="pt8"> へ</label>
+<div id="r_pt8" class="answer"></div></div></div>
+<div class="card">
+<strong>9. A planta está no jardim.</strong><br>にわ_____ はながあります。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas9" value="に" data-resposta="に" data-grupo="grupo_particulas" data-id="pt9"> に</label>
+<label><input type="radio" name="grupo_particulas9" value="で" data-resposta="に" data-grupo="grupo_particulas" data-id="pt9"> で</label>
+<label><input type="radio" name="grupo_particulas9" value="へ" data-resposta="に" data-grupo="grupo_particulas" data-id="pt9"> へ</label>
+<div id="r_pt9" class="answer"></div></div></div>
+<div class="card">
+<strong>10. O professor está na escola.</strong><br>がっこう_____ せんせいがいます。
+<div class="alt-group">
+<label><input type="radio" name="grupo_particulas10" value="に" data-resposta="に" data-grupo="grupo_particulas" data-id="pt10"> に</label>
+<label><input type="radio" name="grupo_particulas10" value="で" data-resposta="に" data-grupo="grupo_particulas" data-id="pt10"> で</label>
+<label><input type="radio" name="grupo_particulas10" value="へ" data-resposta="に" data-grupo="grupo_particulas" data-id="pt10"> へ</label>
+<div id="r_pt10" class="answer"></div></div></div>
+<button onclick="corrigirGrupo('grupo_particulas', 'pt')">Corrigir Partículas</button></body></html>

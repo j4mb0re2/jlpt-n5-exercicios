@@ -1,0 +1,101 @@
+Nº,Categoria,Verbo,Furigana,Romaji,Significado
+1,Ações rotineiras,起きます,おきます,okimasu,acordar / levantar-se
+2,Ações rotineiras,寝ます,ねます,nemasu,dormir / deitar
+3,Ações rotineiras,働きます,はたらきます,hatarakimasu,trabalhar
+4,Ações rotineiras,休みます,やすみます,yasumimasu,descansar / folgar
+5,Ações rotineiras,勉強します,べんきょうします,benkyou shimasu,estudar
+6,Ações rotineiras,行きます,いきます,ikimasu,ir
+7,Ações rotineiras,来ます,きます,kimasu,vir
+8,Ações rotineiras,帰ります,かえります,kaerimasu,voltar para casa
+9,Ações rotineiras,食べます,たべます,tabemasu,comer
+10,Ações rotineiras,飲みます,のみます,nomimasu,beber
+11,Ações rotineiras,吸います,すいます,suimasu,fumar / inalar
+12,Ações rotineiras,見ます,みます,mimasu,ver / assistir
+13,Ações rotineiras,聞きます,ききます,kikimasu,ouvir / escutar
+14,Ações rotineiras,読みます,よみます,yomimasu,ler
+15,Ações rotineiras,書きます,かきます,kakimasu,escrever
+16,Ações rotineiras,話します,はなします,hanashimasu,falar
+17,Ações rotineiras,買います,かいます,kaimasu,comprar
+18,Ações rotineiras,売ります,うります,urimasu,vender
+19,Ações rotineiras,使います,つかいます,tsukaimasu,usar
+20,Ações rotineiras,教えます,おしえます,oshiemasu,ensinar / informar
+21,Verbos de movimento e direção,歩きます,あるきます,arukimasu,andar
+22,Verbos de movimento e direção,走ります,はしります,hashirimasu,correr
+23,Verbos de movimento e direção,乗ります,のります,norimasu,embarcar / subir em transporte
+24,Verbos de movimento e direção,降ります,おります,orimasu,descer de transporte
+25,Verbos de movimento e direção,入ります,はいります,hairimasu,entrar
+26,Verbos de movimento e direção,出ます,でます,demasu,sair
+27,Verbos de movimento e direção,渡ります,わたります,watarimasu,atravessar
+28,Verbos de movimento e direção,曲がります,まがります,magarimasu,virar
+29,Verbos de movimento e direção,登ります,のぼります,noborimasu,subir (montanha etc.)
+30,Verbos de movimento e direção,下ります,おります,orimasu,descer
+31,Verbos de movimento e direção,出かけます,でかけます,dekakemasu,sair para fora
+32,Verbos de movimento e direção,通ります,とおります,toorimasu,passar por
+33,Verbos com objetos / ações físicas,切ります,きります,kirimasu,cortar
+34,Verbos com objetos / ações físicas,開けます,あけます,akemasu,"abrir (porta, etc.)"
+35,Verbos com objetos / ações físicas,閉めます,しめます,shimemasu,fechar
+36,Verbos com objetos / ações físicas,持ちます,もちます,mochimasu,carregar / segurar
+37,Verbos com objetos / ações físicas,貸します,かします,kashimasu,emprestar
+38,Verbos com objetos / ações físicas,借ります,かります,karimasu,pegar emprestado
+39,Verbos com objetos / ações físicas,送ります,おくります,okurimasu,enviar
+40,Verbos com objetos / ações físicas,渡します,わたします,watashimasu,entregar
+41,Verbos com objetos / ações físicas,拾います,ひろいます,hiroimasu,pegar do chão
+42,Verbos com objetos / ações físicas,投げます,なげます,nagemasu,arremessar / jogar
+43,Verbos com objetos / ações físicas,押します,おします,oshimasu,empurrar
+44,Verbos com objetos / ações físicas,引きます,ひきます,hikimasu,puxar / tocar instrumento
+45,Verbos com objetos / ações físicas,入れます,いれます,iremasu,colocar
+46,Verbos com objetos / ações físicas,出します,だします,dashimasu,tirar / enviar / entregar
+47,Verbos emocionais e mentais,思います,おもいます,omoimasu,achar / pensar / sentir
+48,Verbos emocionais e mentais,分かります,わかります,wakarimasu,entender / saber
+49,Verbos emocionais e mentais,覚えます,おぼえます,oboemasu,memorizar
+50,Verbos emocionais e mentais,忘れます,わすれます,wasuremasu,esquecer
+51,Verbos emocionais e mentais,習います,ならいます,naraimasu,aprender
+52,Verbos emocionais e mentais,教えます,おしえます,oshiemasu,ensinar / informar
+53,Verbos emocionais e mentais,考えます,かんがえます,kangaemasu,pensar
+54,Verbos sociais e comunicação,会います,あいます,aimasu,encontrar-se
+55,Verbos sociais e comunicação,話します,はなします,hanashimasu,falar
+56,Verbos sociais e comunicação,電話します,でんわします,denwa shimasu,ligar (por telefone)
+57,Verbos sociais e comunicação,紹介します,しょうかいします,shoukai shimasu,apresentar
+58,Verbos sociais e comunicação,待ちます,まちます,machimasu,esperar
+59,Verbos sociais e comunicação,手伝います,てつだいます,tetsudaimasu,ajudar
+60,Verbos sociais e comunicação,呼びます,よびます,yobimasu,chamar
+61,Verbos sociais e comunicação,歌います,うたいます,utaimasu,cantar
+62,Verbos do ambiente doméstico / cotidiano,洗います,あらいます,araimasu,lavar
+63,Verbos do ambiente doméstico / cotidiano,掃除します,そうじします,souji shimasu,limpar
+64,Verbos do ambiente doméstico / cotidiano,洗濯します,せんたくします,sentaku shimasu,lavar roupa
+65,Verbos do ambiente doméstico / cotidiano,入浴します,にゅうよくします,nyuuyoku shimasu,tomar banho
+66,Verbos do ambiente doméstico / cotidiano,浴びます,あびます,abimasu,tomar (chuveiro)
+67,Verbos do ambiente doméstico / cotidiano,着ます,きます,kimasu,vestir
+68,Verbos do ambiente doméstico / cotidiano,脱ぎます,ぬぎます,nugimasu,tirar roupa
+69,Verbos do ambiente doméstico / cotidiano,開きます,あきます,akimasu,abrir (intransitivo)
+70,Verbos do ambiente doméstico / cotidiano,閉まります,しまります,shimarimasu,fechar (intransitivo)
+71,Complementar,練習します,れんしゅうします,renshuu shimasu,praticar
+72,Complementar,運転します,うんてんします,unten shimasu,dirigir
+73,Complementar,結婚します,けっこんします,kekkon shimasu,casar-se
+74,Complementar,旅行します,りょこうします,ryokou shimasu,viajar
+75,Complementar,散歩します,さんぽします,sanpo shimasu,passear
+76,Complementar,質問します,しつもんします,shitsumon shimasu,perguntar
+77,Complementar,答えます,こたえます,kotaemasu,responder
+78,Complementar,泳ぎます,およぎます,oyogimasu,nadar
+79,Complementar,習います,ならいます,naraimasu,aprender
+80,Complementar,始まります,,,
+81,Complementar,終わります,,,
+82,Complementar,貸します,かします,kashimasu,emprestar
+83,Complementar,借ります,かります,karimasu,pegar emprestado
+84,Complementar,住みます,すみます,sumimasu,morar
+85,Complementar,作ります,つくります,tsukurimasu,fazer / fabricar
+86,Complementar,立ちます,たちます,tachimasu,levantar-se
+87,Complementar,座ります,すわります,suwarimasu,sentar-se
+88,Complementar,開きます,あきます,akimasu,abrir (intransitivo)
+89,Complementar,閉まります,しまります,shimarimasu,fechar (intransitivo)
+90,Complementar,止まります,とまります,tomarimasu,parar
+91,Complementar,開けます,あけます,akemasu,"abrir (porta, etc.)"
+92,Complementar,閉めます,しめます,shimemasu,fechar
+93,Complementar,急ぎます,いそぎます,isogimasu,apressar-se
+94,Complementar,始めます,はじめます,hajimemasu,começar (transitivo)
+95,Complementar,終えます,おえます,oemasu,terminar (transitivo)
+96,Complementar,見せます,みせます,misemasu,mostrar
+97,Complementar,助けます,たすけます,tasukemasu,ajudar / salvar
+98,Complementar,着きます,つきます,tsukimasu,chegar
+99,Complementar,迎えます,むかえます,mukaemasu,receber / buscar alguém
+100,Complementar,払います,はらいます,haraimasu,pagar

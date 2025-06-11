@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Simulado JLPT N5 – Vocabulário</title>
+<style>
+body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+.card { background: #f4f4f4; padding: 15px; margin: 10px 0; border-radius: 8px; }
+.alt-group { margin-top: 10px; }
+button { margin-top: 10px; padding: 10px 15px; font-size: 1rem; }
+.answer { margin-top: 5px; font-weight: bold; }
+#start-btn, #reset-btn { margin: 15px 5px 30px 0; }
+</style>
+<script>
+let intervalo;
+let tempo = 900;
+function iniciarTimer() {
+  document.getElementById('start-btn').disabled = true;
+  document.getElementById('reset-btn').disabled = false;
+  const timer = document.getElementById('timer');
+  intervalo = setInterval(() => {
+    const min = Math.floor(tempo / 60);
+    const seg = tempo % 60;
+    timer.innerText = `⏱️ Tempo restante: ${min}m ${seg}s`;
+    tempo--;
+    if (tempo < 0) {
+      clearInterval(intervalo);
+      timer.innerText = "⏱️ Tempo esgotado.";
+    }
+  }, 1000);
+}
+function corrigir() {
+  let corretas = 0;
+  const total = 20;
+  for (let i = 1; i <= total; i++) {
+    const radios = document.getElementsByName('q'+i);
+    let respondeu = false;
+    for (let r of radios) {
+      if (r.checked) {
+        respondeu = true;
+        if (r.value === r.dataset.resposta) {
+          document.getElementById('r'+i).innerText = "✅ Correto!";
+          corretas++;
+        } else {
+          document.getElementById('r'+i).innerText = "❌ Errado. Resposta correta: " + r.dataset.resposta;
+        }
+      }
+    }
+    if (!respondeu) {
+      document.getElementById('r'+i).innerText = "⚠️ Você não respondeu.";
+    }
+  }
+  document.getElementById('resultado').innerText = `Você acertou ${corretas} de ${total} questões.`;
+}
+function resetarSimulado() {
+  clearInterval(intervalo);
+  tempo = 900;
+  document.getElementById('timer').innerText = "";
+  document.getElementById('start-btn').disabled = false;
+  document.getElementById('reset-btn').disabled = true;
+  document.getElementById('resultado').innerText = "";
+  for (let i = 1; i <= 20; i++) {
+    const radios = document.getElementsByName('q'+i);
+    for (let r of radios) r.checked = false;
+    document.getElementById('r'+i).innerText = "";
+  }
+}
+</script>
+</head>
+<body>
+<h1>Simulado JLPT N5 – Seção 1: Vocabulário</h1>
+<div id="timer"></div>
+<button id="start-btn" onclick="iniciarTimer()">▶️ Iniciar Prova</button>
+<button id="reset-btn" onclick="resetarSimulado()" disabled>🔄 Refazer Simulado</button>
+<div class="card"><strong>1. このひとは　がくせいです。</strong><br><em>Quem é esta pessoa?</em><div class="alt-group"><label><input type="radio" name="q1" value="Um professor" data-resposta="Um estudante"> Um professor</label><br><label><input type="radio" name="q1" value="Um estudante" data-resposta="Um estudante"> Um estudante</label><br><label><input type="radio" name="q1" value="Um policial" data-resposta="Um estudante"> Um policial</label><br><label><input type="radio" name="q1" value="Um médico" data-resposta="Um estudante"> Um médico</label><br><div id="r1" class="answer"></div></div></div><div class="card"><strong>2. これは　たなかさんの　かさです。</strong><br><em>O que é isto?</em><div class="alt-group"><label><input type="radio" name="q2" value="Guarda-chuva" data-resposta="Guarda-chuva"> Guarda-chuva</label><br><label><input type="radio" name="q2" value="Carteira" data-resposta="Guarda-chuva"> Carteira</label><br><label><input type="radio" name="q2" value="Livro" data-resposta="Guarda-chuva"> Livro</label><br><label><input type="radio" name="q2" value="Bicicleta" data-resposta="Guarda-chuva"> Bicicleta</label><br><div id="r2" class="answer"></div></div></div><div class="card"><strong>3. スーパーへ　あるいて　いきます。</strong><br><em>Como a pessoa vai ao supermercado?</em><div class="alt-group"><label><input type="radio" name="q3" value="De carro" data-resposta="A pé"> De carro</label><br><label><input type="radio" name="q3" value="De trem" data-resposta="A pé"> De trem</label><br><label><input type="radio" name="q3" value="A pé" data-resposta="A pé"> A pé</label><br><label><input type="radio" name="q3" value="De ônibus" data-resposta="A pé"> De ônibus</label><br><div id="r3" class="answer"></div></div></div><div class="card"><strong>4. にほんじんですか。</strong><br><em>O que está sendo perguntado?</em><div class="alt-group"><label><input type="radio" name="q4" value="Se é médico" data-resposta="Se é japonês"> Se é médico</label><br><label><input type="radio" name="q4" value="Se é japonês" data-resposta="Se é japonês"> Se é japonês</label><br><label><input type="radio" name="q4" value="Se é estudante" data-resposta="Se é japonês"> Se é estudante</label><br><label><input type="radio" name="q4" value="Se é professor" data-resposta="Se é japonês"> Se é professor</label><br><div id="r4" class="answer"></div></div></div><div class="card"><strong>5. バスで　がっこうへ　いきます。</strong><br><em>Como a pessoa vai para a escola?</em><div class="alt-group"><label><input type="radio" name="q5" value="De bicicleta" data-resposta="De ônibus"> De bicicleta</label><br><label><input type="radio" name="q5" value="De trem" data-resposta="De ônibus"> De trem</label><br><label><input type="radio" name="q5" value="De ônibus" data-resposta="De ônibus"> De ônibus</label><br><label><input type="radio" name="q5" value="A pé" data-resposta="De ônibus"> A pé</label><br><div id="r5" class="answer"></div></div></div><div class="card"><strong>6. これは　せんせいの　ほんです。</strong><br><em>De quem é este livro?</em><div class="alt-group"><label><input type="radio" name="q6" value="Do estudante" data-resposta="Do professor"> Do estudante</label><br><label><input type="radio" name="q6" value="Do professor" data-resposta="Do professor"> Do professor</label><br><label><input type="radio" name="q6" value="Do amigo" data-resposta="Do professor"> Do amigo</label><br><label><input type="radio" name="q6" value="Do pai" data-resposta="Do professor"> Do pai</label><br><div id="r6" class="answer"></div></div></div><div class="card"><strong>7. こうえんで　ピクニックを　します。</strong><br><em>O que vai acontecer no parque?</em><div class="alt-group"><label><input type="radio" name="q7" value="Estudar" data-resposta="Fazer um piquenique"> Estudar</label><br><label><input type="radio" name="q7" value="Correr" data-resposta="Fazer um piquenique"> Correr</label><br><label><input type="radio" name="q7" value="Fazer um piquenique" data-resposta="Fazer um piquenique"> Fazer um piquenique</label><br><label><input type="radio" name="q7" value="Dormir" data-resposta="Fazer um piquenique"> Dormir</label><br><div id="r7" class="answer"></div></div></div><div class="card"><strong>8. ともだちと　えいがを　みます。</strong><br><em>O que vão fazer com o amigo?</em><div class="alt-group"><label><input type="radio" name="q8" value="Ler um livro" data-resposta="Assistir a um filme"> Ler um livro</label><br><label><input type="radio" name="q8" value="Assistir a um filme" data-resposta="Assistir a um filme"> Assistir a um filme</label><br><label><input type="radio" name="q8" value="Comer" data-resposta="Assistir a um filme"> Comer</label><br><label><input type="radio" name="q8" value="Comprar roupas" data-resposta="Assistir a um filme"> Comprar roupas</label><br><div id="r8" class="answer"></div></div></div><div class="card"><strong>9. にちようびに　デパートへ　いきます。</strong><br><em>Quando vão ao shopping?</em><div class="alt-group"><label><input type="radio" name="q9" value="Sábado" data-resposta="Domingo"> Sábado</label><br><label><input type="radio" name="q9" value="Domingo" data-resposta="Domingo"> Domingo</label><br><label><input type="radio" name="q9" value="Segunda-feira" data-resposta="Domingo"> Segunda-feira</label><br><label><input type="radio" name="q9" value="Hoje" data-resposta="Domingo"> Hoje</label><br><div id="r9" class="answer"></div></div></div><div class="card"><strong>10. くるまで　かいしゃへ　いきます。</strong><br><em>Como a pessoa vai para o trabalho?</em><div class="alt-group"><label><input type="radio" name="q10" value="De carro" data-resposta="De carro"> De carro</label><br><label><input type="radio" name="q10" value="De ônibus" data-resposta="De carro"> De ônibus</label><br><label><input type="radio" name="q10" value="De metrô" data-resposta="De carro"> De metrô</label><br><label><input type="radio" name="q10" value="De bicicleta" data-resposta="De carro"> De bicicleta</label><br><div id="r10" class="answer"></div></div></div><div class="card"><strong>11. このケーキは　あまいです。</strong><br><em>Como é o bolo?</em><div class="alt-group"><label><input type="radio" name="q11" value="Salgado" data-resposta="Doce"> Salgado</label><br><label><input type="radio" name="q11" value="Amargo" data-resposta="Doce"> Amargo</label><br><label><input type="radio" name="q11" value="Azedo" data-resposta="Doce"> Azedo</label><br><label><input type="radio" name="q11" value="Doce" data-resposta="Doce"> Doce</label><br><div id="r11" class="answer"></div></div></div><div class="card"><strong>12. せんせいは　しんせつです。</strong><br><em>Como é o professor?</em><div class="alt-group"><label><input type="radio" name="q12" value="Chato" data-resposta="Simpático"> Chato</label><br><label><input type="radio" name="q12" value="Simpático" data-resposta="Simpático"> Simpático</label><br><label><input type="radio" name="q12" value="Rígido" data-resposta="Simpático"> Rígido</label><br><label><input type="radio" name="q12" value="Lento" data-resposta="Simpático"> Lento</label><br><div id="r12" class="answer"></div></div></div><div class="card"><strong>13. このレストランは　ゆうめいです。</strong><br><em>O que é o restaurante?</em><div class="alt-group"><label><input type="radio" name="q13" value="Barato" data-resposta="Famoso"> Barato</label><br><label><input type="radio" name="q13" value="Famoso" data-resposta="Famoso"> Famoso</label><br><label><input type="radio" name="q13" value="Novo" data-resposta="Famoso"> Novo</label><br><label><input type="radio" name="q13" value="Pequeno" data-resposta="Famoso"> Pequeno</label><br><div id="r13" class="answer"></div></div></div><div class="card"><strong>14. でんしゃで　えきへ　いきます。</strong><br><em>Qual meio de transporte foi usado?</em><div class="alt-group"><label><input type="radio" name="q14" value="Carro" data-resposta="Trem"> Carro</label><br><label><input type="radio" name="q14" value="Trem" data-resposta="Trem"> Trem</label><br><label><input type="radio" name="q14" value="Ônibus" data-resposta="Trem"> Ônibus</label><br><label><input type="radio" name="q14" value="A pé" data-resposta="Trem"> A pé</label><br><div id="r14" class="answer"></div></div></div><div class="card"><strong>15. これは　にほんの　えんぴつです。</strong><br><em>De onde é este lápis?</em><div class="alt-group"><label><input type="radio" name="q15" value="Da França" data-resposta="Do Japão"> Da França</label><br><label><input type="radio" name="q15" value="Do Japão" data-resposta="Do Japão"> Do Japão</label><br><label><input type="radio" name="q15" value="Da China" data-resposta="Do Japão"> Da China</label><br><label><input type="radio" name="q15" value="Do Brasil" data-resposta="Do Japão"> Do Brasil</label><br><div id="r15" class="answer"></div></div></div><div class="card"><strong>16. いもうとは　１０さいです。</strong><br><em>Quantos anos tem a irmã mais nova?</em><div class="alt-group"><label><input type="radio" name="q16" value="5" data-resposta="10"> 5</label><br><label><input type="radio" name="q16" value="8" data-resposta="10"> 8</label><br><label><input type="radio" name="q16" value="10" data-resposta="10"> 10</label><br><label><input type="radio" name="q16" value="12" data-resposta="10"> 12</label><br><div id="r16" class="answer"></div></div></div><div class="card"><strong>17. がっこうの　まえに　パンやが　あります。</strong><br><em>Onde fica a padaria?</em><div class="alt-group"><label><input type="radio" name="q17" value="Atrás da escola" data-resposta="Na frente da escola"> Atrás da escola</label><br><label><input type="radio" name="q17" value="Na frente da escola" data-resposta="Na frente da escola"> Na frente da escola</label><br><label><input type="radio" name="q17" value="Ao lado da escola" data-resposta="Na frente da escola"> Ao lado da escola</label><br><label><input type="radio" name="q17" value="Dentro da escola" data-resposta="Na frente da escola"> Dentro da escola</label><br><div id="r17" class="answer"></div></div></div><div class="card"><strong>18. つくえの　うえに　ほんが　あります。</strong><br><em>Onde está o livro?</em><div class="alt-group"><label><input type="radio" name="q18" value="Embaixo da mesa" data-resposta="Sobre a mesa"> Embaixo da mesa</label><br><label><input type="radio" name="q18" value="Dentro da gaveta" data-resposta="Sobre a mesa"> Dentro da gaveta</label><br><label><input type="radio" name="q18" value="Sobre a mesa" data-resposta="Sobre a mesa"> Sobre a mesa</label><br><label><input type="radio" name="q18" value="Atrás da cadeira" data-resposta="Sobre a mesa"> Atrás da cadeira</label><br><div id="r18" class="answer"></div></div></div><div class="card"><strong>19. こんばん　ともだちと　ばんごはんを　たべます。</strong><br><em>O que vai acontecer hoje à noite?</em><div class="alt-group"><label><input type="radio" name="q19" value="Estudar" data-resposta="Jantar com amigo"> Estudar</label><br><label><input type="radio" name="q19" value="Fazer compras" data-resposta="Jantar com amigo"> Fazer compras</label><br><label><input type="radio" name="q19" value="Jantar com amigo" data-resposta="Jantar com amigo"> Jantar com amigo</label><br><label><input type="radio" name="q19" value="Ir ao parque" data-resposta="Jantar com amigo"> Ir ao parque</label><br><div id="r19" class="answer"></div></div></div><div class="card"><strong>20. あそこに　びょういんが　あります。</strong><br><em>O que há ali?</em><div class="alt-group"><label><input type="radio" name="q20" value="Hospital" data-resposta="Hospital"> Hospital</label><br><label><input type="radio" name="q20" value="Loja" data-resposta="Hospital"> Loja</label><br><label><input type="radio" name="q20" value="Casa" data-resposta="Hospital"> Casa</label><br><label><input type="radio" name="q20" value="Escola" data-resposta="Hospital"> Escola</label><br><div id="r20" class="answer"></div></div></div><button onclick="corrigir()">Corrigir esta seção</button><div id="resultado" style="margin-top:20px; font-size:1.2rem;"></div></body></html>

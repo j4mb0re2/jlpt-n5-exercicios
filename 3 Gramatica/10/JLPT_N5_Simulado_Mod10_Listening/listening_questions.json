@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "frase": "きょうは　あついですね。",
+    "significado": "Está quente",
+    "resposta": "Está quente",
+    "alternativas": [
+      "Está chovendo",
+      "Está frio",
+      "Está quente",
+      "Está nublado"
+    ]
+  },
+  {
+    "id": 2,
+    "frase": "わたしは　まいにち　がっこうへ　いきます。",
+    "significado": "Vai para a escola todos os dias",
+    "resposta": "Vai para a escola",
+    "alternativas": [
+      "Vai ao trabalho",
+      "Vai para a escola",
+      "Estuda em casa",
+      "Vai ao mercado"
+    ]
+  },
+  {
+    "id": 3,
+    "frase": "いぬは　にわに　います。",
+    "significado": "O cachorro está no jardim",
+    "resposta": "No jardim",
+    "alternativas": [
+      "No quarto",
+      "No jardim",
+      "Na escola",
+      "Na sala"
+    ]
+  },
+  {
+    "id": 4,
+    "frase": "あした　ともだちと　えいがを　みます。",
+    "significado": "Vai ver um filme com um amigo amanhã",
+    "resposta": "Ver filme com amigo",
+    "alternativas": [
+      "Ir ao hospital",
+      "Ver filme com amigo",
+      "Comprar livro",
+      "Estudar japonês"
+    ]
+  },
+  {
+    "id": 5,
+    "frase": "このほんは　たかいです。",
+    "significado": "O livro é caro",
+    "resposta": "Caro",
+    "alternativas": [
+      "Novo",
+      "Grande",
+      "Barato",
+      "Caro"
+    ]
+  },
+  {
+    "id": 6,
+    "frase": "これは　せんせいの　じてんしゃです。",
+    "significado": "É a bicicleta do professor",
+    "resposta": "Bicicleta do professor",
+    "alternativas": [
+      "Bicicleta do professor",
+      "Carro do aluno",
+      "Trem da escola",
+      "Mala da professora"
+    ]
+  },
+  {
+    "id": 7,
+    "frase": "でんしゃで　えきへ　いきます。",
+    "significado": "Vai de trem até a estação",
+    "resposta": "Trem",
+    "alternativas": [
+      "A pé",
+      "Ônibus",
+      "Trem",
+      "Bicicleta"
+    ]
+  },
+  {
+    "id": 8,
+    "frase": "わたしの　へやは　せまいです。",
+    "significado": "Meu quarto é apertado",
+    "resposta": "Apertado",
+    "alternativas": [
+      "Espaçoso",
+      "Escuro",
+      "Apertado",
+      "Limpo"
+    ]
+  },
+  {
+    "id": 9,
+    "frase": "まいにち　６じに　おきます。",
+    "significado": "Acorda às 6h todo dia",
+    "resposta": "Às 6h",
+    "alternativas": [
+      "Às 6h",
+      "Às 7h",
+      "Às 8h",
+      "Ao meio-dia"
+    ]
+  },
+  {
+    "id": 10,
+    "frase": "にほんごを　べんきょうします。",
+    "significado": "Estuda japonês",
+    "resposta": "Japonês",
+    "alternativas": [
+      "Inglês",
+      "Japonês",
+      "Matemática",
+      "História"
+    ]
+  },
+  {
+    "id": 11,
+    "frase": "あそこに　びょういんが　あります。",
+    "significado": "Há um hospital ali",
+    "resposta": "Hospital",
+    "alternativas": [
+      "Escola",
+      "Hospital",
+      "Supermercado",
+      "Parque"
+    ]
+  },
+  {
+    "id": 12,
+    "frase": "でんきを　けしてください。",
+    "significado": "Desligue a luz",
+    "resposta": "Desligar a luz",
+    "alternativas": [
+      "Ligar a luz",
+      "Fechar a janela",
+      "Desligar a luz",
+      "Ligar ar-condicionado"
+    ]
+  },
+  {
+    "id": 13,
+    "frase": "おとうとは　ちいさいです。",
+    "significado": "O irmão mais novo é pequeno",
+    "resposta": "Pequeno",
+    "alternativas": [
+      "Alto",
+      "Pequeno",
+      "Forte",
+      "Velho"
+    ]
+  },
+  {
+    "id": 14,
+    "frase": "このレストランは　にぎやかです。",
+    "significado": "O restaurante é animado",
+    "resposta": "Animado",
+    "alternativas": [
+      "Silencioso",
+      "Animado",
+      "Pequeno",
+      "Novo"
+    ]
+  },
+  {
+    "id": 15,
+    "frase": "ともだちは　がっこうに　います。",
+    "significado": "O amigo está na escola",
+    "resposta": "Escola",
+    "alternativas": [
+      "Parque",
+      "Casa",
+      "Escola",
+      "Restaurante"
+    ]
+  },
+  {
+    "id": 16,
+    "frase": "パンと　ミルクを　かいました。",
+    "significado": "Comprou pão e leite",
+    "resposta": "Leite e pão",
+    "alternativas": [
+      "Leite e pão",
+      "Chá e frutas",
+      "Pão e manteiga",
+      "Leite e carne"
+    ]
+  },
+  {
+    "id": 17,
+    "frase": "このシャツは　しろいです。",
+    "significado": "A camisa é branca",
+    "resposta": "Branca",
+    "alternativas": [
+      "Azul",
+      "Preta",
+      "Branca",
+      "Vermelha"
+    ]
+  }
+]

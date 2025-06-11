@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Simulado JLPT N5 – Gramática e Leitura</title>
+<style>
+body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+.card { background: #f4f4f4; padding: 15px; margin: 10px 0; border-radius: 8px; }
+.alt-group { margin-top: 10px; }
+button { margin-top: 10px; padding: 10px 15px; font-size: 1rem; }
+.answer { margin-top: 5px; font-weight: bold; }
+#start-btn, #reset-btn { margin: 15px 5px 30px 0; }
+</style>
+<script>
+let intervalo;
+let tempo = 900;
+function iniciarTimer() {
+  document.getElementById('start-btn').disabled = true;
+  document.getElementById('reset-btn').disabled = false;
+  const timer = document.getElementById('timer');
+  intervalo = setInterval(() => {
+    const min = Math.floor(tempo / 60);
+    const seg = tempo % 60;
+    timer.innerText = `⏱️ Tempo restante: ${min}m ${seg}s`;
+    tempo--;
+    if (tempo < 0) {
+      clearInterval(intervalo);
+      timer.innerText = "⏱️ Tempo esgotado.";
+    }
+  }, 1000);
+}
+function corrigir() {
+  let corretas = 0;
+  const total = 20;
+  for (let i = 1; i <= total; i++) {
+    const radios = document.getElementsByName('q'+i);
+    let respondeu = false;
+    for (let r of radios) {
+      if (r.checked) {
+        respondeu = true;
+        if (r.value === r.dataset.resposta) {
+          document.getElementById('r'+i).innerText = "✅ Correto!";
+          corretas++;
+        } else {
+          document.getElementById('r'+i).innerText = "❌ Errado. Resposta correta: " + r.dataset.resposta;
+        }
+      }
+    }
+    if (!respondeu) {
+      document.getElementById('r'+i).innerText = "⚠️ Você não respondeu.";
+    }
+  }
+  document.getElementById('resultado').innerText = `Você acertou ${corretas} de ${total} questões.`;
+}
+function resetarSimulado() {
+  clearInterval(intervalo);
+  tempo = 900;
+  document.getElementById('timer').innerText = "";
+  document.getElementById('start-btn').disabled = false;
+  document.getElementById('reset-btn').disabled = true;
+  document.getElementById('resultado').innerText = "";
+  for (let i = 1; i <= 20; i++) {
+    const radios = document.getElementsByName('q'+i);
+    for (let r of radios) r.checked = false;
+    document.getElementById('r'+i).innerText = "";
+  }
+}
+</script>
+</head>
+<body>
+<h1>Simulado JLPT N5 – Seção 2: Gramática e Leitura</h1>
+<div id="timer"></div>
+<button id="start-btn" onclick="iniciarTimer()">▶️ Iniciar Prova</button>
+<button id="reset-btn" onclick="resetarSimulado()" disabled>🔄 Refazer Simulado</button>
+<div class="card"><strong>1. わたしはせんせいです。</strong><br><em>O que a frase indica?</em><div class="alt-group"><label><input type="radio" name="q1" value="Eu sou professor" data-resposta="Eu sou professor"> Eu sou professor</label><br><label><input type="radio" name="q1" value="Ele é estudante" data-resposta="Eu sou professor"> Ele é estudante</label><br><label><input type="radio" name="q1" value="Você é médico" data-resposta="Eu sou professor"> Você é médico</label><br><label><input type="radio" name="q1" value="Ela é advogada" data-resposta="Eu sou professor"> Ela é advogada</label><br><div id="r1" class="answer"></div></div></div><div class="card"><strong>2. これはにほんのくるまです。</strong><br><em>O que está sendo descrito?</em><div class="alt-group"><label><input type="radio" name="q2" value="Um carro japonês" data-resposta="Um carro japonês"> Um carro japonês</label><br><label><input type="radio" name="q2" value="Um carro novo" data-resposta="Um carro japonês"> Um carro novo</label><br><label><input type="radio" name="q2" value="Uma bicicleta" data-resposta="Um carro japonês"> Uma bicicleta</label><br><label><input type="radio" name="q2" value="Um trem da França" data-resposta="Um carro japonês"> Um trem da França</label><br><div id="r2" class="answer"></div></div></div><div class="card"><strong>3. たなかさんはがくせいじゃありません。</strong><br><em>O que Tanaka não é?</em><div class="alt-group"><label><input type="radio" name="q3" value="Médico" data-resposta="Estudante"> Médico</label><br><label><input type="radio" name="q3" value="Professor" data-resposta="Estudante"> Professor</label><br><label><input type="radio" name="q3" value="Estudante" data-resposta="Estudante"> Estudante</label><br><label><input type="radio" name="q3" value="Policial" data-resposta="Estudante"> Policial</label><br><div id="r3" class="answer"></div></div></div><div class="card"><strong>4. これはだれのかばんですか。</strong><br><em>O que está sendo perguntado?</em><div class="alt-group"><label><input type="radio" name="q4" value="De quem é a mochila?" data-resposta="De quem é a mochila?"> De quem é a mochila?</label><br><label><input type="radio" name="q4" value="Qual é a cor da mochila?" data-resposta="De quem é a mochila?"> Qual é a cor da mochila?</label><br><label><input type="radio" name="q4" value="O que tem na mochila?" data-resposta="De quem é a mochila?"> O que tem na mochila?</label><br><label><input type="radio" name="q4" value="Onde está a mochila?" data-resposta="De quem é a mochila?"> Onde está a mochila?</label><br><div id="r4" class="answer"></div></div></div><div class="card"><strong>5. いまなんじですか。</strong><br><em>O que está sendo perguntado?</em><div class="alt-group"><label><input type="radio" name="q5" value="Qual o dia?" data-resposta="Que horas são?"> Qual o dia?</label><br><label><input type="radio" name="q5" value="Que horas são?" data-resposta="Que horas são?"> Que horas são?</label><br><label><input type="radio" name="q5" value="Onde você está?" data-resposta="Que horas são?"> Onde você está?</label><br><label><input type="radio" name="q5" value="Quantos anos tem?" data-resposta="Que horas são?"> Quantos anos tem?</label><br><div id="r5" class="answer"></div></div></div><div class="card"><strong>6. あそこにがっこうがあります。</strong><br><em>O que há ali?</em><div class="alt-group"><label><input type="radio" name="q6" value="Uma escola" data-resposta="Uma escola"> Uma escola</label><br><label><input type="radio" name="q6" value="Um hospital" data-resposta="Uma escola"> Um hospital</label><br><label><input type="radio" name="q6" value="Um parque" data-resposta="Uma escola"> Um parque</label><br><label><input type="radio" name="q6" value="Um mercado" data-resposta="Uma escola"> Um mercado</label><br><div id="r6" class="answer"></div></div></div><div class="card"><strong>7. あしたデパートへいきます。</strong><br><em>Quando a pessoa vai ao shopping?</em><div class="alt-group"><label><input type="radio" name="q7" value="Ontem" data-resposta="Amanhã"> Ontem</label><br><label><input type="radio" name="q7" value="Hoje" data-resposta="Amanhã"> Hoje</label><br><label><input type="radio" name="q7" value="Amanhã" data-resposta="Amanhã"> Amanhã</label><br><label><input type="radio" name="q7" value="Agora" data-resposta="Amanhã"> Agora</label><br><div id="r7" class="answer"></div></div></div><div class="card"><strong>8. でんしゃでとうきょうへいきます。</strong><br><em>Como a pessoa vai para Tóquio?</em><div class="alt-group"><label><input type="radio" name="q8" value="De ônibus" data-resposta="De trem"> De ônibus</label><br><label><input type="radio" name="q8" value="De avião" data-resposta="De trem"> De avião</label><br><label><input type="radio" name="q8" value="De carro" data-resposta="De trem"> De carro</label><br><label><input type="radio" name="q8" value="De trem" data-resposta="De trem"> De trem</label><br><div id="r8" class="answer"></div></div></div><div class="card"><strong>9. このみせはにぎやかです。</strong><br><em>Como é a loja?</em><div class="alt-group"><label><input type="radio" name="q9" value="Silenciosa" data-resposta="Agitada"> Silenciosa</label><br><label><input type="radio" name="q9" value="Agitada" data-resposta="Agitada"> Agitada</label><br><label><input type="radio" name="q9" value="Barata" data-resposta="Agitada"> Barata</label><br><label><input type="radio" name="q9" value="Fechada" data-resposta="Agitada"> Fechada</label><br><div id="r9" class="answer"></div></div></div><div class="card"><strong>10. きのうともだちとカフェにいきました。</strong><br><em>O que aconteceu ontem?</em><div class="alt-group"><label><input type="radio" name="q10" value="Foi ao parque" data-resposta="Foi ao café com amigo"> Foi ao parque</label><br><label><input type="radio" name="q10" value="Foi ao café com amigo" data-resposta="Foi ao café com amigo"> Foi ao café com amigo</label><br><label><input type="radio" name="q10" value="Estudou" data-resposta="Foi ao café com amigo"> Estudou</label><br><label><input type="radio" name="q10" value="Dormiu cedo" data-resposta="Foi ao café com amigo"> Dormiu cedo</label><br><div id="r10" class="answer"></div></div></div><div class="card"><strong>11. まいにち６じにおきます。</strong><br><em>Quando a pessoa acorda?</em><div class="alt-group"><label><input type="radio" name="q11" value="Às 5h" data-resposta="Às 6h"> Às 5h</label><br><label><input type="radio" name="q11" value="Às 6h" data-resposta="Às 6h"> Às 6h</label><br><label><input type="radio" name="q11" value="Às 7h" data-resposta="Às 6h"> Às 7h</label><br><label><input type="radio" name="q11" value="Ao meio-dia" data-resposta="Às 6h"> Ao meio-dia</label><br><div id="r11" class="answer"></div></div></div><div class="card"><strong>12. どようびにテニスをします。</strong><br><em>O que a pessoa faz no sábado?</em><div class="alt-group"><label><input type="radio" name="q12" value="Nada" data-resposta="Joga tênis"> Nada</label><br><label><input type="radio" name="q12" value="Vai ao trabalho" data-resposta="Joga tênis"> Vai ao trabalho</label><br><label><input type="radio" name="q12" value="Joga tênis" data-resposta="Joga tênis"> Joga tênis</label><br><label><input type="radio" name="q12" value="Compra roupas" data-resposta="Joga tênis"> Compra roupas</label><br><div id="r12" class="answer"></div></div></div><div class="card"><strong>13. せんせいはへやにいます。</strong><br><em>Onde está o professor?</em><div class="alt-group"><label><input type="radio" name="q13" value="Na sala" data-resposta="Na sala"> Na sala</label><br><label><input type="radio" name="q13" value="No carro" data-resposta="Na sala"> No carro</label><br><label><input type="radio" name="q13" value="Na loja" data-resposta="Na sala"> Na loja</label><br><label><input type="radio" name="q13" value="Na escola" data-resposta="Na sala"> Na escola</label><br><div id="r13" class="answer"></div></div></div><div class="card"><strong>14. いぬはそとにいます。</strong><br><em>Onde está o cachorro?</em><div class="alt-group"><label><input type="radio" name="q14" value="Na cama" data-resposta="Fora de casa"> Na cama</label><br><label><input type="radio" name="q14" value="Fora de casa" data-resposta="Fora de casa"> Fora de casa</label><br><label><input type="radio" name="q14" value="No carro" data-resposta="Fora de casa"> No carro</label><br><label><input type="radio" name="q14" value="No sofá" data-resposta="Fora de casa"> No sofá</label><br><div id="r14" class="answer"></div></div></div><div class="card"><strong>15. まいあさパンをたべます。</strong><br><em>O que a pessoa faz toda manhã?</em><div class="alt-group"><label><input type="radio" name="q15" value="Estuda" data-resposta="Come pão"> Estuda</label><br><label><input type="radio" name="q15" value="Toma banho" data-resposta="Come pão"> Toma banho</label><br><label><input type="radio" name="q15" value="Come pão" data-resposta="Come pão"> Come pão</label><br><label><input type="radio" name="q15" value="Vai para a escola" data-resposta="Come pão"> Vai para a escola</label><br><div id="r15" class="answer"></div></div></div><div class="card"><strong>16. すしがすきです。</strong><br><em>O que a pessoa gosta?</em><div class="alt-group"><label><input type="radio" name="q16" value="Tempurá" data-resposta="Sushi"> Tempurá</label><br><label><input type="radio" name="q16" value="Sopa" data-resposta="Sushi"> Sopa</label><br><label><input type="radio" name="q16" value="Sushi" data-resposta="Sushi"> Sushi</label><br><label><input type="radio" name="q16" value="Ramen" data-resposta="Sushi"> Ramen</label><br><div id="r16" class="answer"></div></div></div><div class="card"><strong>17. このでんしゃははやいです。</strong><br><em>Como é esse trem?</em><div class="alt-group"><label><input type="radio" name="q17" value="Devagar" data-resposta="Rápido"> Devagar</label><br><label><input type="radio" name="q17" value="Antigo" data-resposta="Rápido"> Antigo</label><br><label><input type="radio" name="q17" value="Novo" data-resposta="Rápido"> Novo</label><br><label><input type="radio" name="q17" value="Rápido" data-resposta="Rápido"> Rápido</label><br><div id="r17" class="answer"></div></div></div><div class="card"><strong>18. ともだちはにほんごがじょうずです。</strong><br><em>Sobre o amigo:</em><div class="alt-group"><label><input type="radio" name="q18" value="Fala bem japonês" data-resposta="Fala bem japonês"> Fala bem japonês</label><br><label><input type="radio" name="q18" value="Fala mal japonês" data-resposta="Fala bem japonês"> Fala mal japonês</label><br><label><input type="radio" name="q18" value="É estrangeiro" data-resposta="Fala bem japonês"> É estrangeiro</label><br><label><input type="radio" name="q18" value="É novo na escola" data-resposta="Fala bem japonês"> É novo na escola</label><br><div id="r18" class="answer"></div></div></div><div class="card"><strong>19. へやのなかにつくえといすがあります。</strong><br><em>O que há no quarto?</em><div class="alt-group"><label><input type="radio" name="q19" value="Sofá e mesa" data-resposta="Mesa e cadeira"> Sofá e mesa</label><br><label><input type="radio" name="q19" value="Cama e guarda-roupa" data-resposta="Mesa e cadeira"> Cama e guarda-roupa</label><br><label><input type="radio" name="q19" value="Mesa e cadeira" data-resposta="Mesa e cadeira"> Mesa e cadeira</label><br><label><input type="radio" name="q19" value="TV e rádio" data-resposta="Mesa e cadeira"> TV e rádio</label><br><div id="r19" class="answer"></div></div></div><div class="card"><strong>20. でんきをけしてください。</strong><br><em>O que deve ser feito?</em><div class="alt-group"><label><input type="radio" name="q20" value="Ligar a luz" data-resposta="Desligar a luz"> Ligar a luz</label><br><label><input type="radio" name="q20" value="Desligar a luz" data-resposta="Desligar a luz"> Desligar a luz</label><br><label><input type="radio" name="q20" value="Abrir a janela" data-resposta="Desligar a luz"> Abrir a janela</label><br><label><input type="radio" name="q20" value="Fechar a porta" data-resposta="Desligar a luz"> Fechar a porta</label><br><div id="r20" class="answer"></div></div></div><button onclick="corrigir()">Corrigir esta seção</button><div id="resultado" style="margin-top:20px; font-size:1.2rem;"></div></body></html>
