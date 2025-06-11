@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios JLPT N5</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f8f8f8;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px #ccc;
+      box-sizing: border-box;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      width: 100%;
+      height: 200px;
+      box-sizing: border-box;
+      touch-action: none;
+      display: block;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      margin: 5px 5px 5px 0;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    #resposta {
+      display: none;
+      margin-top: 15px;
+      border-top: 1px dashed #aaa;
+      padding-top: 10px;
+      overflow-wrap: break-word;
+    }
+    #navegacao {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Exercício <span id="numeroQuestao">1</span> de 10</h3>
+    <p id="enunciado"></p>
+
+    <div>
+      <button onclick="modoCaneta()">✍️ Modo Caneta</button>
+      <button onclick="modoTeclado()">⌨️ Modo Teclado</button>
+      <button onclick="clearCanvas()">🧽 Limpar</button>
+      <button id="toggleRespostaBtn" onclick="toggleResposta()">✅ Mostrar Resposta</button>
+    </div>
+
+    <div id="canetaBox">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="tecladoBox" style="display:none;">
+      <input type="text" id="respostaInput" placeholder="Digite sua resposta aqui...">
+    </div>
+
+    <div id="resposta">
+      <strong>Resposta:</strong> <span id="textoResposta"></span>
+    </div>
+
+    <div id="navegacao">
+      <button onclick="anterior()">⬅️ Anterior</button>
+      <button onclick="proxima()">Próxima ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    const questoes = [
+      ["Escreva a leitura em hiragana da palavra: 学校", "がっこう (gakkou)"],
+      ["Escreva a leitura em hiragana da palavra: 水", "みず (mizu)"],
+      ["Escreva a leitura em hiragana da palavra: 日本", "にほん (nihon)"],
+      ["Escreva a leitura em hiragana da palavra: 電車", "でんしゃ (densha)"],
+      ["Escreva a leitura em hiragana da palavra: 山", "やま (yama)"],
+      ["Escreva a leitura em hiragana da palavra: 先生", "せんせい (sensei)"],
+      ["Escreva a leitura em hiragana da palavra: 本", "ほん (hon)"],
+      ["Escreva a leitura em hiragana da palavra: 火曜日", "かようび (kayoubi)"],
+      ["Escreva a leitura em hiragana da palavra: 食べます", "たべます (tabemasu)"],
+      ["Escreva a leitura em hiragana da palavra: 飲みます", "のみます (nomimasu)"],
+    ];
+
+    let indice = 0;
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let desenhando = false;
+    let mostrar = false;
+
+    function redimensionarCanvas() {
+      const container = canvas.parentElement;
+      canvas.width = container.offsetWidth;
+      canvas.height = 200;
+      clearCanvas();
+    }
+
+    function getPos(evt) {
+      const rect = canvas.getBoundingClientRect();
+      if (evt.touches && evt.touches.length > 0) {
+        return {
+          x: evt.touches[0].clientX - rect.left,
+          y: evt.touches[0].clientY - rect.top
+        };
+      }
+      return { x: evt.offsetX, y: evt.offsetY };
+    }
+
+    function iniciarDesenho(evt) {
+      desenhando = true;
+      const pos = getPos(evt);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      evt.preventDefault();
+    }
+
+    function desenhar(evt) {
+      if (!desenhando) return;
+      const pos = getPos(evt);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      evt.preventDefault();
+    }
+
+    function pararDesenho() {
+      desenhando = false;
+    }
+
+    canvas.addEventListener('mousedown', iniciarDesenho);
+    canvas.addEventListener('mousemove', desenhar);
+    canvas.addEventListener('mouseup', pararDesenho);
+    canvas.addEventListener('mouseout', pararDesenho);
+
+    canvas.addEventListener('touchstart', iniciarDesenho);
+    canvas.addEventListener('touchmove', desenhar);
+    canvas.addEventListener('touchend', pararDesenho);
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.getElementById('respostaInput').value = "";
+    }
+
+    function toggleResposta() {
+      mostrar = !mostrar;
+      const respostaDiv = document.getElementById('resposta');
+      const toggleBtn = document.getElementById('toggleRespostaBtn');
+      if (mostrar) {
+        respostaDiv.style.display = 'block';
+        toggleBtn.textContent = "❌ Ocultar Resposta";
+      } else {
+        respostaDiv.style.display = 'none';
+        toggleBtn.textContent = "✅ Mostrar Resposta";
+      }
+    }
+
+    function modoTeclado() {
+      document.getElementById('canetaBox').style.display = 'none';
+      document.getElementById('tecladoBox').style.display = 'block';
+    }
+
+    function modoCaneta() {
+      document.getElementById('canetaBox').style.display = 'block';
+      document.getElementById('tecladoBox').style.display = 'none';
+    }
+
+    function carregarQuestao() {
+      const [enunciado, resposta] = questoes[indice];
+      document.getElementById('enunciado').textContent = enunciado;
+      document.getElementById('textoResposta').textContent = resposta;
+      document.getElementById('numeroQuestao').textContent = (indice + 1);
+      document.getElementById('resposta').style.display = 'none';
+      document.getElementById('toggleRespostaBtn').textContent = "✅ Mostrar Resposta";
+      mostrar = false;
+      clearCanvas();
+    }
+
+    function proxima() {
+      if (indice < questoes.length - 1) {
+        indice++;
+        carregarQuestao();
+      }
+    }
+
+    function anterior() {
+      if (indice > 0) {
+        indice--;
+        carregarQuestao();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      redimensionarCanvas();
+      modoTeclado();
+      carregarQuestao();
+    });
+
+    window.addEventListener('resize', redimensionarCanvas);
+  </script>
+</body>
+</html>
